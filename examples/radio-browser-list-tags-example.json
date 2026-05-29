@@ -1,0 +1,8 @@
+[
+  {"name": "pop", "stationcount": 8421},
+  {"name": "rock", "stationcount": 6913},
+  {"name": "music", "stationcount": 6450},
+  {"name": "news", "stationcount": 4127},
+  {"name": "talk", "stationcount": 3018},
+  {"name": "classical", "stationcount": 2541}
+]

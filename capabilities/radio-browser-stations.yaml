@@ -1,0 +1,197 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Radio Browser — Stations
+  description: 'Radio Browser Stations capability covering search, browse, and ranking operations across the community-maintained
+    internet radio directory.'
+  tags:
+  - Radio Browser
+  - Stations
+  - Music
+  created: '2026-05-28'
+  modified: '2026-05-28'
+binds:
+- namespace: env
+  keys:
+    RADIO_BROWSER_USER_AGENT: RADIO_BROWSER_USER_AGENT
+capability:
+  consumes:
+  - type: http
+    namespace: radio-browser-stations
+    baseUri: https://de1.api.radio-browser.info
+    description: Read-only HTTP capability over the Radio Browser station directory.
+    headers:
+      User-Agent: '{{env.RADIO_BROWSER_USER_AGENT}}'
+    resources:
+    - name: stations
+      path: /json/stations
+      operations:
+      - name: listStations
+        method: GET
+        description: List All Stations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: array
+          value: $.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+        - name: limit
+          in: query
+          type: integer
+        - name: hidebroken
+          in: query
+          type: boolean
+    - name: stations-search
+      path: /json/stations/search
+      operations:
+      - name: searchStations
+        method: GET
+        description: Search Stations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: array
+          value: $.
+        inputParameters:
+        - name: name
+          in: query
+          type: string
+        - name: country
+          in: query
+          type: string
+        - name: countrycode
+          in: query
+          type: string
+        - name: language
+          in: query
+          type: string
+        - name: tag
+          in: query
+          type: string
+        - name: codec
+          in: query
+          type: string
+        - name: order
+          in: query
+          type: string
+        - name: limit
+          in: query
+          type: integer
+        - name: offset
+          in: query
+          type: integer
+    - name: stations-byuuid
+      path: /json/stations/byuuid
+      operations:
+      - name: getStationsByUuid
+        method: GET
+        description: Get Stations By UUID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: array
+          value: $.
+        inputParameters:
+        - name: uuids
+          in: query
+          type: string
+          required: true
+    - name: stations-topclick
+      path: /json/stations/topclick
+      operations:
+      - name: getTopClickStations
+        method: GET
+        description: Get Top Clicked Stations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: array
+          value: $.
+    - name: stations-topvote
+      path: /json/stations/topvote
+      operations:
+      - name: getTopVoteStations
+        method: GET
+        description: Get Top Voted Stations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: array
+          value: $.
+    authentication:
+      type: none
+  exposes:
+  - type: mcp
+    namespace: radio-browser-stations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter exposing Radio Browser station search and ranking tools.
+    tools:
+    - name: list-stations
+      description: List All Stations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: radio-browser-stations.listStations
+      with:
+        offset: tools.offset
+        limit: tools.limit
+        hidebroken: tools.hidebroken
+      outputParameters:
+      - type: array
+        mapping: $.
+    - name: search-stations
+      description: Search Stations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: radio-browser-stations.searchStations
+      with:
+        name: tools.name
+        country: tools.country
+        countrycode: tools.countrycode
+        language: tools.language
+        tag: tools.tag
+        codec: tools.codec
+        order: tools.order
+        limit: tools.limit
+        offset: tools.offset
+      outputParameters:
+      - type: array
+        mapping: $.
+    - name: get-stations-by-uuid
+      description: Get Stations By UUID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: radio-browser-stations.getStationsByUuid
+      with:
+        uuids: tools.uuids
+      outputParameters:
+      - type: array
+        mapping: $.
+    - name: get-top-click-stations
+      description: Get Top Clicked Stations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: radio-browser-stations.getTopClickStations
+      outputParameters:
+      - type: array
+        mapping: $.
+    - name: get-top-vote-stations
+      description: Get Top Voted Stations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: radio-browser-stations.getTopVoteStations
+      outputParameters:
+      - type: array
+        mapping: $.

@@ -1,0 +1,73 @@
+name: Radio Browser Vocabulary
+description: |
+  Controlled vocabulary describing the conceptual surface of the Radio
+  Browser API: entities, facets, interaction events, and service
+  metadata. Used to align API responses with linked-data semantics and
+  to seed naftiko capability descriptions.
+version: '0.1'
+source: https://api.radio-browser.info/
+license: AGPL-3.0
+terms:
+  - term: Station
+    definition: An internet-streamed radio station entry in the Radio Browser directory.
+    aliases: [RadioStation, Stream]
+    schemaOrg: https://schema.org/RadioStation
+  - term: StationUUID
+    definition: Stable identifier assigned to a station across the entire Radio Browser mirror network.
+    type: identifier
+  - term: ChangeUUID
+    definition: Identifier of the latest edit applied to a station record.
+    type: identifier
+  - term: ServerUUID
+    definition: Identifier of the mirror server that holds the canonical copy of a station record.
+    type: identifier
+  - term: Country
+    definition: Country in which a station is registered, expressed as both a human-readable name and an ISO 3166-1 alpha-2 code.
+    schemaOrg: https://schema.org/Country
+  - term: State
+    definition: Subnational region (state, province, oblast) used to organize stations within a country.
+    schemaOrg: https://schema.org/State
+  - term: Language
+    definition: Spoken language of a station's programming. Stations may broadcast in multiple languages.
+    schemaOrg: https://schema.org/Language
+  - term: Tag
+    definition: Free-form keyword (e.g. pop, jazz, news) attached to stations to describe genre, content, or format.
+  - term: Codec
+    definition: Audio encoding used by the station's stream (MP3, AAC, AAC+, OGG, FLAC, OPUS).
+  - term: Bitrate
+    definition: Stream bitrate in kilobits per second as reported by the most recent health check.
+  - term: HLS
+    definition: Indicates that the station stream uses HTTP Live Streaming.
+  - term: Click
+    definition: An event registered when a user starts playback of a station. Counted once per IP per station per 24 hours.
+    type: event
+  - term: Vote
+    definition: A positive endorsement of a station by a user. Throttled to one vote per IP per station every 10 minutes.
+    type: event
+  - term: HealthCheck
+    definition: Automated test that verifies whether a station's stream is reachable and decodable.
+    type: event
+  - term: Mirror
+    definition: One of several geographically distributed Radio Browser servers reachable via the all.api.radio-browser.info DNS pool.
+  - term: ExtendedInfo
+    definition: Flag indicating that the station record includes ICY metadata recovered from the live stream.
+facets:
+  - country
+  - countrycode
+  - state
+  - language
+  - tag
+  - codec
+events:
+  - click
+  - vote
+  - submission
+  - healthCheck
+formats:
+  - json
+  - xml
+  - csv
+  - m3u
+  - pls
+  - xspf
+  - ttl

@@ -1,0 +1,61 @@
+extends:
+  - spectral:oas
+documentationUrl: https://docs.radio-browser.info/
+functions: []
+rules:
+  rb-operation-id-camel-case:
+    description: All operationIds must be camelCase to match Radio Browser conventions.
+    given: $.paths[*][get,post,put,delete,patch].operationId
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-zA-Z0-9]+$'
+  rb-summary-title-case:
+    description: Operation summaries must use Title Case.
+    given: $.paths[*][get,post,put,delete,patch].summary
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^([A-Z][a-zA-Z0-9]*)( [A-Z][a-zA-Z0-9]*)*$'
+  rb-stations-tag-required:
+    description: Operations under /json/stations must be tagged Stations.
+    given: $.paths[?(@property =~ /^\/json\/stations/)][get,post].tags
+    severity: warn
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          contains:
+            const: Stations
+  rb-uuid-path-format:
+    description: Station path parameters named stationuuid must declare format uuid.
+    given: $.paths[*][get,post,put,delete,patch].parameters[?(@.name=='stationuuid')].schema
+    severity: error
+    then:
+      field: format
+      function: truthy
+  rb-user-agent-doc:
+    description: The API description must remind callers that a User-Agent header is mandatory.
+    given: $.info.description
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: 'User-Agent'
+  rb-license-agpl:
+    description: License must be AGPL-3.0 for the canonical server.
+    given: $.info.license.name
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^AGPL-3\.0$'
+  rb-server-pool:
+    description: At least one server entry must reference the round-robin pool host.
+    given: $.servers[*].url
+    severity: info
+    then:
+      function: truthy

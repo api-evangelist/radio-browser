@@ -1,0 +1,67 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Radio Browser
+providerId: radio-browser
+created: '2026-05-28'
+modified: '2026-05-28'
+tags:
+  - Music
+  - Open Data
+  - Community
+  - Rate Limiting
+  - Throttling
+description: |
+  Documented rate limits for the Radio Browser community API. Radio Browser does not publish a general
+  per-IP request quota for read endpoints, but it enforces per-interaction throttles on click counting
+  and voting, and operators of individual mirrors may apply their own throttles. Clients are required
+  to send a descriptive User-Agent header (appname/appversion) so the maintainer can reach them if a
+  client is misbehaving.
+headers:
+  retryAfter: Retry-After
+responseCodes:
+  throttled: 429
+  serviceUnavailable: 503
+requirements:
+  - name: User-Agent
+    description: Clients MUST send a descriptive User-Agent header (e.g. "MyRadioApp/1.4"). Requests without one may be blocked by mirror operators.
+    enforcement: per-request
+limits:
+  - tier: community
+    name: Vote Throttle
+    scope: ip+station
+    metric: votes_per_station_per_ip
+    limit: 1
+    timeFrame: 10_minutes
+    description: A vote on a given station from a given IP is only counted once per 10-minute window.
+    applies:
+      - Radio Browser API
+  - tier: community
+    name: Click Throttle
+    scope: ip+station
+    metric: clicks_per_station_per_ip
+    limit: 1
+    timeFrame: day
+    description: A click on a given station from a given IP is only counted once per 24-hour window.
+    applies:
+      - Radio Browser API
+  - tier: community
+    name: Mirror Operator Discretion
+    scope: ip
+    metric: requests_per_minute
+    limit: null
+    timeFrame: minute
+    description: |
+      Individual mirror operators may impose their own per-IP throttles (commonly observed values are
+      in the range of several hundred to a thousand requests per minute). No global, published number
+      exists. Clients should respect 429 responses, back off, and rotate across mirrors discovered via
+      DNS resolution of all.api.radio-browser.info.
+    applies:
+      - Radio Browser API
+recovery:
+  - strategy: rotate-mirror
+    description: When throttled, resolve all.api.radio-browser.info again and switch to a different mirror.
+  - strategy: respect-retry-after
+    description: Honor the Retry-After header when present on 429/503 responses.
+  - strategy: self-host
+    description: For high-volume workloads, self-host radiobrowser-api-rust to bypass shared-mirror throttles.

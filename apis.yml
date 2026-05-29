@@ -1,32 +1,193 @@
 aid: radio-browser
 name: Radio Browser
-description: "List of internet radio stations"
-url: https://api.radio-browser.info/
-specificationVersion: '0.20'
-created: '2026-05-28'
-modified: '2026-05-28'
-x-source: public-apis/public-apis
-x-category: "Music"
-x-tier: 3
-x-tier-reason: bulk-registered-from-public-apis
+description: >-
+  Radio Browser is a free, community-driven directory of internet radio
+  stations. The project publishes a public REST API exposing the full
+  catalog of stations along with category aggregates (countries, states,
+  languages, tags, codecs), click counting, voting, and station
+  submission. Mirrors are discovered through a round-robin DNS pool
+  (all.api.radio-browser.info) and the canonical server software
+  (radiobrowser-api-rust) is released under AGPL-3.0, so anyone can
+  self-host an additional mirror.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Music
+  - Radio
+  - Streaming
+  - Open Source
+  - Open Data
+  - Community
   - Public APIs
+  - AGPL
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/radio-browser/refs/heads/main/apis.yml
+created: '2026-05-28'
+modified: '2026-05-28'
+specificationVersion: '0.20'
+x-source: public-apis/public-apis
+x-category: Music
+x-type: opensource
+x-tier: 3
+x-tier-reason: bulk-registered-from-public-apis
 apis:
-  - name: Radio Browser
-    description: "List of internet radio stations"
+  - aid: radio-browser:radio-browser-api
+    name: Radio Browser API
+    description: >-
+      Public REST API exposing internet radio stations, category
+      aggregates (countries, states, languages, tags, codecs), click
+      counting, voting, station submission, mirror discovery, and
+      service statistics. Response formats include JSON, XML, CSV,
+      M3U, PLS, XSPF, and TTL.
     humanURL: https://api.radio-browser.info/
-    baseURL: https://api.radio-browser.info/
+    baseURL: https://de1.api.radio-browser.info
     tags:
       - Music
+      - Radio
+      - Streaming
     properties:
       - type: Documentation
         url: https://api.radio-browser.info/
+      - type: APIReference
+        url: https://docs.radio-browser.info/
+      - type: OpenAPI
+        url: openapi/radio-browser-openapi.yml
+      - type: JSONSchema
+        url: json-schema/radio-browser-station-schema.json
+      - type: JSONSchema
+        url: json-schema/radio-browser-category-schema.json
+      - type: JSONSchema
+        url: json-schema/radio-browser-stats-schema.json
+      - type: JSONStructure
+        url: json-structure/radio-browser-station-structure.json
+      - type: JSONStructure
+        url: json-structure/radio-browser-category-structure.json
+      - type: JSON-LD
+        url: json-ld/radio-browser-context.jsonld
+      - type: Example
+        url: examples/radio-browser-list-stations-example.json
+      - type: Example
+        url: examples/radio-browser-search-stations-example.json
+      - type: Example
+        url: examples/radio-browser-list-countries-example.json
+      - type: Example
+        url: examples/radio-browser-list-tags-example.json
+      - type: Example
+        url: examples/radio-browser-click-station-example.json
+      - type: Example
+        url: examples/radio-browser-vote-station-example.json
+      - type: Example
+        url: examples/radio-browser-get-stats-example.json
+      - type: Authentication
+        url: https://docs.radio-browser.info/
+        description: No authentication required. Clients MUST send a descriptive User-Agent header.
+      - type: RateLimits
+        url: rate-limits/radio-browser-rate-limits.yml
 common:
   - type: Website
+    url: https://www.radio-browser.info/
+  - type: Documentation
     url: https://api.radio-browser.info/
+  - type: APIReference
+    url: https://docs.radio-browser.info/
+  - type: GitHubOrganization
+    url: https://github.com/segler-alex
+  - type: GitHubRepository
+    url: https://github.com/segler-alex/radiobrowser-api-rust
+    description: Archived GitHub mirror of the canonical Rust server (now on GitLab).
+  - type: SourceCode
+    url: https://gitlab.com/radiobrowser/radiobrowser-api-rust
+    description: Canonical AGPL-3.0 server (Rust). Self-host to run your own mirror.
+  - type: HelmCharts
+    url: https://gitlab.com/radiobrowser/helm-charts
+  - type: License
+    url: https://www.gnu.org/licenses/agpl-3.0.html
+    description: AGPL-3.0 for the server software. Database is community-contributed.
+  - type: SpectralRules
+    url: rules/radio-browser-rules.yml
+  - type: Vocabulary
+    url: vocabulary/radio-browser-vocabulary.yml
+  - type: NaftikoCapability
+    url: capabilities/radio-browser-stations.yaml
+  - type: NaftikoCapability
+    url: capabilities/radio-browser-categories.yaml
+  - type: NaftikoCapability
+    url: capabilities/radio-browser-interactions.yaml
+  - type: Plans
+    url: plans/radio-browser-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/radio-browser-rate-limits.yml
   - type: PublicAPIsListing
     url: https://github.com/public-apis/public-apis
+  - type: SDK
+    url: https://github.com/ivandotv/radio-browser-api
+    description: JavaScript/TypeScript wrapper (ivandotv/radio-browser-api).
+  - type: SDK
+    url: https://github.com/andreztz/pyradios
+    description: Python client (andreztz/pyradios).
+  - type: SDK
+    url: https://github.com/sfuhrm/radiobrowser4j
+    description: Java client (sfuhrm/radiobrowser4j).
+  - type: SDK
+    url: https://github.com/nepodev/radio-browser
+    description: Node.js client (nepodev/radio-browser).
+  - type: SDK
+    url: https://github.com/tomassasovsky/radio-browser-api.dart
+    description: Dart client (tomassasovsky/radio-browser-api.dart).
+  - type: SDK
+    url: https://github.com/adinan-cenci/radio-browser
+    description: PHP client (adinan-cenci/radio-browser).
+  - type: SDK
+    url: https://hexdocs.pm/radio_browser/
+    description: Elixir client (RadioBrowser on Hex).
+  - type: Features
+    data:
+      - name: Round-Robin Mirror Pool
+        description: Servers discovered via DNS resolution of all.api.radio-browser.info; clients pick a healthy mirror and fall back as needed.
+      - name: Multiple Response Formats
+        description: JSON, XML, CSV, M3U, PLS, XSPF, and TTL output for nearly every read endpoint.
+      - name: Faceted Browse
+        description: List stations by country, country code, state, language, tag, or codec with station counts per facet.
+      - name: Continuous Stream Health Checks
+        description: Stations are automatically pinged to verify their stream is reachable; results power lastcheckok and broken-station endpoints.
+      - name: Community Curation
+        description: Anyone can submit a station via POST /json/add; clicks and votes feed station popularity rankings.
+      - name: Open Source Server (AGPL-3.0)
+        description: The radiobrowser-api-rust server is open source; operators can self-host an additional mirror.
+      - name: Geo Coordinates
+        description: Stations carry optional geo_lat/geo_long for map-based discovery.
+      - name: Prometheus Metrics
+        description: Each mirror exposes /metrics in Prometheus exposition format for operational observability.
+  - type: UseCases
+    data:
+      - name: Internet Radio Player Apps
+        description: Power desktop, mobile, and web players that let users browse the directory and play streams.
+      - name: Voice Assistant Skills
+        description: Back Alexa/Google/Home Assistant skills that play "play jazz radio from France" requests by searching the directory.
+      - name: Smart Speaker Integrations
+        description: Embedded firmware (e.g. AirMusic, Hama, internet radio hardware) ships Radio Browser as a station source.
+      - name: Music Discovery Research
+        description: Researchers analyze the catalog to study global radio programming, language distribution, and genre tagging.
+      - name: Streaming Health Dashboards
+        description: Use the /json/checks data to build dashboards showing global radio stream uptime.
+      - name: Editorial Curation
+        description: Editors use vote/click data to surface trending stations by country, language, or genre.
+  - type: Integrations
+    data:
+      - name: Home Assistant
+        description: Multiple custom components and the built-in Radio Browser integration use the API for station selection.
+      - name: VLC / Media Players
+        description: Media player extensions consume the API to populate radio station catalogs.
+      - name: Self-Hosted Mirrors
+        description: Operators run radiobrowser-api-rust to add to the all.api.radio-browser.info pool.
+      - name: Public APIs Directory
+        description: Listed in public-apis/public-apis under the Music category.
+  - type: Solutions
+    data:
+      - name: Hosted Community API
+        description: The free, hosted, AGPL-licensed Radio Browser mirror network — the default for most apps.
+      - name: Self-Hosted Mirror
+        description: Run radiobrowser-api-rust on your own infrastructure for guaranteed throughput, isolated data, or private catalogs.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

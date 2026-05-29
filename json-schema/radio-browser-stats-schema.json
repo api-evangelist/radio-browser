@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.radio-browser.info/schemas/stats.json",
+  "title": "ServiceStats",
+  "description": "Operational statistics published by a Radio Browser API mirror.",
+  "type": "object",
+  "required": ["supported_version", "software_version", "status", "stations"],
+  "properties": {
+    "supported_version": {"type": "integer"},
+    "software_version": {"type": "string"},
+    "status": {"type": "string"},
+    "stations": {"type": "integer", "minimum": 0},
+    "stations_broken": {"type": "integer", "minimum": 0},
+    "tags": {"type": "integer", "minimum": 0},
+    "clicks_last_hour": {"type": "integer", "minimum": 0},
+    "clicks_last_day": {"type": "integer", "minimum": 0},
+    "languages": {"type": "integer", "minimum": 0},
+    "countries": {"type": "integer", "minimum": 0}
+  }
+}

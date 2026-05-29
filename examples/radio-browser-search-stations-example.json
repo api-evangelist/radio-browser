@@ -1,0 +1,25 @@
+[
+  {
+    "stationuuid": "3a0a4a82-4a89-4b9f-bd56-3d8e9a8f0a01",
+    "name": "BBC Radio 6 Music",
+    "url": "https://stream.live.vc.bbcmedia.co.uk/bbc_6music",
+    "url_resolved": "https://stream.live.vc.bbcmedia.co.uk/bbc_6music",
+    "homepage": "https://www.bbc.co.uk/6music",
+    "favicon": "https://www.bbc.co.uk/favicon.ico",
+    "tags": "alternative,bbc,indie,public radio",
+    "country": "The United Kingdom Of Great Britain And Northern Ireland",
+    "countrycode": "GB",
+    "state": "England",
+    "language": "english",
+    "votes": 9876,
+    "codec": "AAC",
+    "bitrate": 128,
+    "hls": 1,
+    "lastcheckok": 1,
+    "clickcount": 54321,
+    "clicktrend": 45,
+    "geo_lat": 51.5074,
+    "geo_long": -0.1278,
+    "has_extended_info": true
+  }
+]

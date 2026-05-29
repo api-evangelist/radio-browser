@@ -1,0 +1,27 @@
+[
+  {
+    "changeuuid": "8fa9a7d5-b88d-4d8d-b3a8-b4f0e2a39c11",
+    "stationuuid": "94b95bce-c66f-44b9-b6ab-2c5e8c0a8e2f",
+    "name": "Radio Paradise (Main Mix)",
+    "url": "http://stream.radioparadise.com/aac-320",
+    "url_resolved": "https://stream.radioparadise.com/aac-320",
+    "homepage": "https://radioparadise.com/",
+    "favicon": "https://radioparadise.com/favicon.ico",
+    "tags": "eclectic,rock,indie,alternative",
+    "country": "United States",
+    "countrycode": "US",
+    "state": "California",
+    "language": "english",
+    "languagecodes": "en",
+    "votes": 4321,
+    "codec": "AAC",
+    "bitrate": 320,
+    "hls": 0,
+    "lastcheckok": 1,
+    "clickcount": 18234,
+    "clicktrend": 12,
+    "geo_lat": 38.5816,
+    "geo_long": -121.4944,
+    "has_extended_info": false
+  }
+]

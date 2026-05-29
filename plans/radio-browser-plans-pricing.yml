@@ -1,0 +1,78 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Radio Browser
+providerId: radio-browser
+created: '2026-05-28'
+modified: '2026-05-28'
+tags:
+  - Music
+  - Open Data
+  - Community
+  - AGPL
+description: |
+  Radio Browser is a community-run, AGPL-licensed public API. The directory and all hosted mirrors are
+  free to use without authentication, registration, or payment. There is no commercial tier and no paid
+  upgrade path. This plans document records that single free plan so it can be machine-consumed alongside
+  commercial providers.
+plans:
+  - id: radio-browser-free
+    name: Free (Community)
+    type: free
+    description: |
+      Unrestricted, no-cost access to the Radio Browser API mirror pool. Operated by volunteers under
+      the AGPL-3.0 license with no SLA. Users must send a descriptive User-Agent header and must respect
+      per-IP interaction throttles (1 click per station per IP per 24 hours, 1 vote per station per IP
+      per 10 minutes).
+    entries:
+      - label: API Requests
+        description: General request access to the mirror pool. No documented per-key or per-IP quota for read endpoints.
+        name: api_requests
+        type: rate
+        metric: requests
+        limit: 0
+        timeFrame: unlimited
+        geo: global
+        domains:
+          - https://all.api.radio-browser.info
+          - https://de1.api.radio-browser.info
+          - https://nl1.api.radio-browser.info
+          - https://at1.api.radio-browser.info
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Vote Throttle
+        description: One vote per station per IP every 10 minutes.
+        name: vote_throttle
+        type: rate
+        metric: votes_per_station_per_ip
+        limit: 1
+        timeFrame: 10_minutes
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Click Throttle
+        description: One counted click per station per IP per 24 hours.
+        name: click_throttle
+        type: rate
+        metric: clicks_per_station_per_ip
+        limit: 1
+        timeFrame: day
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: Stations Directory
+      - name: Categories (Countries, Languages, Tags, Codecs, States)
+      - name: Click Counting
+      - name: Voting
+      - name: Station Submission
+      - name: Mirror Server Discovery
+      - name: Service Statistics
+      - name: Self-Hosting (run your own mirror via radiobrowser-api-rust)
+notes: |
+  Because Radio Browser is AGPL software, organizations needing guaranteed throughput, SLAs, or private
+  data can self-host the radiobrowser-api-rust server (https://gitlab.com/radiobrowser/radiobrowser-api-rust).
+  Self-hosting cost is operator-owned and not modeled here.

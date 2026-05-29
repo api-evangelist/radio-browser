@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api.radio-browser.info/structures/category.json",
+  "name": "Category",
+  "type": "object",
+  "description": "JSON Structure for an aggregated facet value (country, language, tag, codec, or state).",
+  "properties": {
+    "name": {"type": "string"},
+    "stationcount": {"type": "int32"},
+    "country": {"type": "string"},
+    "iso_3166_1": {"type": "string"}
+  },
+  "required": ["name", "stationcount"]
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.radio-browser.info/schemas/category.json",
+  "title": "Category",
+  "description": "Aggregate station count for a single facet value (country, language, tag, codec, or state).",
+  "type": "object",
+  "required": ["name", "stationcount"],
+  "properties": {
+    "name": {"type": "string"},
+    "stationcount": {"type": "integer", "minimum": 0},
+    "country": {"type": "string", "description": "Country name. Only present on /json/states results."},
+    "iso_3166_1": {"type": "string", "pattern": "^[A-Z]{2}$", "description": "ISO 3166-1 alpha-2 country code. Only present on /json/countrycodes results."}
+  }
+}
