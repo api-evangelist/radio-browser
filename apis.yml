@@ -1,14 +1,11 @@
 aid: radio-browser
 name: Radio Browser
 description: >-
-  Radio Browser is a free, community-driven directory of internet radio
-  stations. The project publishes a public REST API exposing the full
-  catalog of stations along with category aggregates (countries, states,
-  languages, tags, codecs), click counting, voting, and station
-  submission. Mirrors are discovered through a round-robin DNS pool
-  (all.api.radio-browser.info) and the canonical server software
-  (radiobrowser-api-rust) is released under AGPL-3.0, so anyone can
-  self-host an additional mirror.
+  Radio Browser is a free, community-driven directory of internet radio stations. The project publishes a public REST
+  API exposing the full catalog of stations along with category aggregates (countries, states, languages, tags, codecs),
+  click counting, voting, and station submission. Mirrors are discovered through a round-robin DNS pool
+  (all.api.radio-browser.info) and the canonical server software (radiobrowser-api-rust) is released under AGPL-3.0, so
+  anyone can self-host an additional mirror.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
@@ -20,8 +17,7 @@ tags:
   - Community
   - Public APIs
   - AGPL
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/radio-browser/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/radio-browser/refs/heads/main/apis.yml
 created: '2026-05-28'
 modified: '2026-05-28'
 specificationVersion: '0.20'
@@ -34,11 +30,9 @@ apis:
   - aid: radio-browser:radio-browser-api
     name: Radio Browser API
     description: >-
-      Public REST API exposing internet radio stations, category
-      aggregates (countries, states, languages, tags, codecs), click
-      counting, voting, station submission, mirror discovery, and
-      service statistics. Response formats include JSON, XML, CSV,
-      M3U, PLS, XSPF, and TTL.
+      Public REST API exposing internet radio stations, category aggregates (countries, states, languages, tags,
+      codecs), click counting, voting, station submission, mirror discovery, and service statistics. Response formats
+      include JSON, XML, CSV, M3U, PLS, XSPF, and TTL.
     humanURL: https://api.radio-browser.info/
     baseURL: https://de1.api.radio-browser.info
     tags:
@@ -107,12 +101,6 @@ common:
     url: rules/radio-browser-rules.yml
   - type: Vocabulary
     url: vocabulary/radio-browser-vocabulary.yml
-  - type: NaftikoCapability
-    url: capabilities/radio-browser-stations.yaml
-  - type: NaftikoCapability
-    url: capabilities/radio-browser-categories.yaml
-  - type: NaftikoCapability
-    url: capabilities/radio-browser-interactions.yaml
   - type: Plans
     url: plans/radio-browser-plans-pricing.yml
   - type: RateLimits
@@ -143,13 +131,17 @@ common:
   - type: Features
     data:
       - name: Round-Robin Mirror Pool
-        description: Servers discovered via DNS resolution of all.api.radio-browser.info; clients pick a healthy mirror and fall back as needed.
+        description: >-
+          Servers discovered via DNS resolution of all.api.radio-browser.info; clients pick a healthy mirror and fall
+          back as needed.
       - name: Multiple Response Formats
         description: JSON, XML, CSV, M3U, PLS, XSPF, and TTL output for nearly every read endpoint.
       - name: Faceted Browse
         description: List stations by country, country code, state, language, tag, or codec with station counts per facet.
       - name: Continuous Stream Health Checks
-        description: Stations are automatically pinged to verify their stream is reachable; results power lastcheckok and broken-station endpoints.
+        description: >-
+          Stations are automatically pinged to verify their stream is reachable; results power lastcheckok and
+          broken-station endpoints.
       - name: Community Curation
         description: Anyone can submit a station via POST /json/add; clicks and votes feed station popularity rankings.
       - name: Open Source Server (AGPL-3.0)
@@ -163,7 +155,9 @@ common:
       - name: Internet Radio Player Apps
         description: Power desktop, mobile, and web players that let users browse the directory and play streams.
       - name: Voice Assistant Skills
-        description: Back Alexa/Google/Home Assistant skills that play "play jazz radio from France" requests by searching the directory.
+        description: >-
+          Back Alexa/Google/Home Assistant skills that play "play jazz radio from France" requests by searching the
+          directory.
       - name: Smart Speaker Integrations
         description: Embedded firmware (e.g. AirMusic, Hama, internet radio hardware) ships Radio Browser as a station source.
       - name: Music Discovery Research
@@ -187,7 +181,9 @@ common:
       - name: Hosted Community API
         description: The free, hosted, AGPL-licensed Radio Browser mirror network — the default for most apps.
       - name: Self-Hosted Mirror
-        description: Run radiobrowser-api-rust on your own infrastructure for guaranteed throughput, isolated data, or private catalogs.
+        description: >-
+          Run radiobrowser-api-rust on your own infrastructure for guaranteed throughput, isolated data, or private
+          catalogs.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

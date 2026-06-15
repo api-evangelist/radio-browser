@@ -1,0 +1,577 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Radio Browser API",
+    "version": "0.7.44"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Stations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Stations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/stations",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Starting offset for pagination."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum rows to return."
+              },
+              {
+                "name": "hidebroken",
+                "value": "",
+                "type": "query",
+                "description": "Exclude stations whose last health check failed."
+              }
+            ]
+          },
+          "docs": "Return the full collection of radio stations as JSON."
+        },
+        {
+          "info": {
+            "name": "Search Stations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/stations/search",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Match station name (substring, case-insensitive)."
+              },
+              {
+                "name": "nameExact",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "countrycode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tagList",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "codec",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bitrateMin",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bitrateMax",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "reverse",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Starting offset for pagination."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum rows to return."
+              },
+              {
+                "name": "hidebroken",
+                "value": "",
+                "type": "query",
+                "description": "Exclude stations whose last health check failed."
+              }
+            ]
+          },
+          "docs": "Advanced search across the station database using multiple optional filters."
+        },
+        {
+          "info": {
+            "name": "Get Stations By UUID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/stations/byuuid",
+            "params": [
+              {
+                "name": "uuids",
+                "value": "",
+                "type": "query",
+                "description": "One UUID or a comma-separated list of UUIDs."
+              }
+            ]
+          },
+          "docs": "Return the stations matching the supplied station UUIDs."
+        },
+        {
+          "info": {
+            "name": "Get Stations By Name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/stations/byname/:searchterm",
+            "params": [
+              {
+                "name": "searchterm",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Stations By Name"
+        },
+        {
+          "info": {
+            "name": "Get Stations By Country",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/stations/bycountry/:searchterm",
+            "params": [
+              {
+                "name": "searchterm",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Stations By Country"
+        },
+        {
+          "info": {
+            "name": "Get Stations By Country Code",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/stations/bycountrycodeexact/:searchterm",
+            "params": [
+              {
+                "name": "searchterm",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Stations By Country Code"
+        },
+        {
+          "info": {
+            "name": "Get Stations By Language",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/stations/bylanguage/:searchterm",
+            "params": [
+              {
+                "name": "searchterm",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Stations By Language"
+        },
+        {
+          "info": {
+            "name": "Get Stations By Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/stations/bytag/:searchterm",
+            "params": [
+              {
+                "name": "searchterm",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Stations By Tag"
+        },
+        {
+          "info": {
+            "name": "Get Stations By Codec",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/stations/bycodec/:searchterm",
+            "params": [
+              {
+                "name": "searchterm",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Stations By Codec"
+        },
+        {
+          "info": {
+            "name": "Get Stations By Stream URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/stations/byurl",
+            "params": [
+              {
+                "name": "url",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Stations By Stream URL"
+        },
+        {
+          "info": {
+            "name": "Get Top Clicked Stations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/stations/topclick",
+            "params": [
+              {
+                "name": "rowcount",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Top Clicked Stations"
+        },
+        {
+          "info": {
+            "name": "Get Top Voted Stations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/stations/topvote"
+          },
+          "docs": "Get Top Voted Stations"
+        },
+        {
+          "info": {
+            "name": "Get Recently Clicked Stations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/stations/lastclick"
+          },
+          "docs": "Get Recently Clicked Stations"
+        },
+        {
+          "info": {
+            "name": "Get Recently Changed Stations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/stations/lastchange"
+          },
+          "docs": "Get Recently Changed Stations"
+        },
+        {
+          "info": {
+            "name": "Get Broken Stations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/stations/broken"
+          },
+          "docs": "Get Broken Stations"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Categories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/countries"
+          },
+          "docs": "List all countries with the number of stations per country."
+        },
+        {
+          "info": {
+            "name": "List Country Codes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/countrycodes"
+          },
+          "docs": "List Country Codes"
+        },
+        {
+          "info": {
+            "name": "List States",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/states"
+          },
+          "docs": "List all states/regions with station counts."
+        },
+        {
+          "info": {
+            "name": "List Languages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/languages"
+          },
+          "docs": "List Languages"
+        },
+        {
+          "info": {
+            "name": "List Tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/tags"
+          },
+          "docs": "List Tags"
+        },
+        {
+          "info": {
+            "name": "List Codecs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/codecs"
+          },
+          "docs": "List Codecs"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Interactions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Click Station",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/url/:stationuuid",
+            "params": [
+              {
+                "name": "stationuuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Register a play (click) for the given station and return the resolved\nstream URL. Clients SHOULD call this every time the user starts\nplayback. Counted once per IP per station per 24 hours.\n"
+        },
+        {
+          "info": {
+            "name": "Vote For Station",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/vote/:stationuuid",
+            "params": [
+              {
+                "name": "stationuuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Vote for a station. Throttled to one vote per station per IP every 10 minutes."
+        },
+        {
+          "info": {
+            "name": "Submit Station",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://de1.api.radio-browser.info/json/add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a new radio station to the directory."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Service",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Service Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/stats"
+          },
+          "docs": "Get Service Stats"
+        },
+        {
+          "info": {
+            "name": "List Mirror Servers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/servers"
+          },
+          "docs": "List Mirror Servers"
+        },
+        {
+          "info": {
+            "name": "Get Server Config",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/config"
+          },
+          "docs": "Get Server Config"
+        },
+        {
+          "info": {
+            "name": "List Station Checks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/checks",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Starting offset for pagination."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum rows to return."
+              }
+            ]
+          },
+          "docs": "List recent stream-health check results."
+        },
+        {
+          "info": {
+            "name": "List Click Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/clicks",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Starting offset for pagination."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum rows to return."
+              }
+            ]
+          },
+          "docs": "List Click Events"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
