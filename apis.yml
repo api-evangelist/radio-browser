@@ -7,7 +7,7 @@ description: >-
   (all.api.radio-browser.info) and the canonical server software (radiobrowser-api-rust) is released under AGPL-3.0, so
   anyone can self-host an additional mirror.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Music
   - Radio
