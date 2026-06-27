@@ -56,21 +56,21 @@ apis:
         url: json-structure/radio-browser-station-structure.json
       - type: JSONStructure
         url: json-structure/radio-browser-category-structure.json
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/radio-browser-context.jsonld
-      - type: Example
+      - type: Examples
         url: examples/radio-browser-list-stations-example.json
-      - type: Example
+      - type: Examples
         url: examples/radio-browser-search-stations-example.json
-      - type: Example
+      - type: Examples
         url: examples/radio-browser-list-countries-example.json
-      - type: Example
+      - type: Examples
         url: examples/radio-browser-list-tags-example.json
-      - type: Example
+      - type: Examples
         url: examples/radio-browser-click-station-example.json
-      - type: Example
+      - type: Examples
         url: examples/radio-browser-vote-station-example.json
-      - type: Example
+      - type: Examples
         url: examples/radio-browser-get-stats-example.json
       - type: Authentication
         url: https://docs.radio-browser.info/
@@ -107,25 +107,25 @@ common:
     url: rate-limits/radio-browser-rate-limits.yml
   - type: PublicAPIsListing
     url: https://github.com/public-apis/public-apis
-  - type: SDK
+  - type: SDKs
     url: https://github.com/ivandotv/radio-browser-api
     description: JavaScript/TypeScript wrapper (ivandotv/radio-browser-api).
-  - type: SDK
+  - type: SDKs
     url: https://github.com/andreztz/pyradios
     description: Python client (andreztz/pyradios).
-  - type: SDK
+  - type: SDKs
     url: https://github.com/sfuhrm/radiobrowser4j
     description: Java client (sfuhrm/radiobrowser4j).
-  - type: SDK
+  - type: SDKs
     url: https://github.com/nepodev/radio-browser
     description: Node.js client (nepodev/radio-browser).
-  - type: SDK
+  - type: SDKs
     url: https://github.com/tomassasovsky/radio-browser-api.dart
     description: Dart client (tomassasovsky/radio-browser-api.dart).
-  - type: SDK
+  - type: SDKs
     url: https://github.com/adinan-cenci/radio-browser
     description: PHP client (adinan-cenci/radio-browser).
-  - type: SDK
+  - type: SDKs
     url: https://hexdocs.pm/radio_browser/
     description: Elixir client (RadioBrowser on Hex).
   - type: Features
