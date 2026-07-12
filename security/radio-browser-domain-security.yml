@@ -1,0 +1,33 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.radio-browser.info
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  2 04:33:48 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: api.radio-browser.info
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 29 23:03:43 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: de1.api.radio-browser.info
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 23 19:24:46 2026 GMT
+  hsts: null
+domains:
+- domain: radio-browser.info
+  dnssec: false
+  caa:
+  - 0 issuewild "letsencrypt.org"
+  - 0 issuewild "pki.goog; cansignhttpexchanges=yes"
+  - 0 issuewild "ssl.com"
+  - 0 issue "comodoca.com"
+  - 0 issue "digicert.com; cansignhttpexchanges=yes"
+  - 0 issue "letsencrypt.org"
+  spf: false
+  dmarc: false

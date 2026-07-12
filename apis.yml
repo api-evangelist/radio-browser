@@ -78,6 +78,8 @@ apis:
       - type: RateLimits
         url: rate-limits/radio-browser-rate-limits.yml
 common:
+  - type: DomainSecurity
+    url: security/radio-browser-domain-security.yml
   - type: Website
     url: https://www.radio-browser.info/
   - type: Documentation
