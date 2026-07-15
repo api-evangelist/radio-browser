@@ -78,6 +78,8 @@ apis:
       - type: RateLimits
         url: rate-limits/radio-browser-rate-limits.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/radio-browser-agentic-access.yml
   - type: DomainSecurity
     url: security/radio-browser-domain-security.yml
   - type: Website
