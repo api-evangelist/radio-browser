@@ -1,0 +1,188 @@
+openapi: 3.0.3
+info:
+  title: Radio Browser Categories Interactions API
+  description: 'Radio Browser is a free community-driven directory of internet radio
+
+    stations. The API exposes the complete station database along with
+
+    metadata (countries, languages, codecs, tags, states) and supports
+
+    click counting, voting, and station submission.
+
+
+    Servers are reached through a round-robin DNS pool. Resolve
+
+    `all.api.radio-browser.info` to obtain the list of mirrors, then call
+
+    one of them (for example `de1.api.radio-browser.info`). The base URL
+
+    `api.radio-browser.info` also resolves to one of the active mirrors.
+
+
+    Clients MUST send a descriptive `User-Agent` header in the form
+
+    `appname/appversion`. Voting is throttled to one vote per station per
+
+    IP every 10 minutes. Click counts are aggregated once per station per
+
+    IP per 24 hours.
+
+    '
+  version: 0.7.44
+  contact:
+    name: Radio Browser
+    url: https://www.radio-browser.info/
+  license:
+    name: AGPL-3.0
+    url: https://www.gnu.org/licenses/agpl-3.0.html
+servers:
+- url: https://de1.api.radio-browser.info
+  description: Germany 1 mirror
+- url: https://nl1.api.radio-browser.info
+  description: Netherlands 1 mirror
+- url: https://at1.api.radio-browser.info
+  description: Austria 1 mirror
+- url: https://all.api.radio-browser.info
+  description: Round-robin pool entry (resolve via DNS)
+tags:
+- name: Interactions
+  description: Click counting, voting, and station submission.
+paths:
+  /json/url/{stationuuid}:
+    get:
+      tags:
+      - Interactions
+      operationId: clickStation
+      summary: Click Station
+      description: 'Register a play (click) for the given station and return the resolved
+
+        stream URL. Clients SHOULD call this every time the user starts
+
+        playback. Counted once per IP per station per 24 hours.
+
+        '
+      parameters:
+      - in: path
+        name: stationuuid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Click acknowledged.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClickResult'
+  /json/vote/{stationuuid}:
+    get:
+      tags:
+      - Interactions
+      operationId: voteStation
+      summary: Vote For Station
+      description: Vote for a station. Throttled to one vote per station per IP every 10 minutes.
+      parameters:
+      - in: path
+        name: stationuuid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Vote outcome.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResult'
+  /json/add:
+    post:
+      tags:
+      - Interactions
+      operationId: addStation
+      summary: Submit Station
+      description: Submit a new radio station to the directory.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/StationSubmission'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StationSubmission'
+      responses:
+        '200':
+          description: Submission result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddStationResult'
+components:
+  schemas:
+    StationSubmission:
+      type: object
+      required:
+      - name
+      - url
+      properties:
+        name:
+          type: string
+        url:
+          type: string
+          format: uri
+        homepage:
+          type: string
+          format: uri
+        favicon:
+          type: string
+          format: uri
+        country:
+          type: string
+        countrycode:
+          type: string
+        state:
+          type: string
+        language:
+          type: string
+        tags:
+          type: string
+        geo_lat:
+          type: number
+          format: float
+        geo_long:
+          type: number
+          format: float
+    AddStationResult:
+      type: object
+      properties:
+        ok:
+          type: boolean
+        message:
+          type: string
+        uuid:
+          type: string
+          format: uuid
+    StatusResult:
+      type: object
+      properties:
+        ok:
+          type: boolean
+        message:
+          type: string
+    ClickResult:
+      type: object
+      properties:
+        ok:
+          type: boolean
+        message:
+          type: string
+        stationuuid:
+          type: string
+          format: uuid
+        name:
+          type: string
+        url:
+          type: string
+          format: uri

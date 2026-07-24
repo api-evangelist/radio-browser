@@ -1,0 +1,159 @@
+openapi: 3.0.3
+info:
+  title: Radio Browser Categories API
+  description: 'Radio Browser is a free community-driven directory of internet radio
+
+    stations. The API exposes the complete station database along with
+
+    metadata (countries, languages, codecs, tags, states) and supports
+
+    click counting, voting, and station submission.
+
+
+    Servers are reached through a round-robin DNS pool. Resolve
+
+    `all.api.radio-browser.info` to obtain the list of mirrors, then call
+
+    one of them (for example `de1.api.radio-browser.info`). The base URL
+
+    `api.radio-browser.info` also resolves to one of the active mirrors.
+
+
+    Clients MUST send a descriptive `User-Agent` header in the form
+
+    `appname/appversion`. Voting is throttled to one vote per station per
+
+    IP every 10 minutes. Click counts are aggregated once per station per
+
+    IP per 24 hours.
+
+    '
+  version: 0.7.44
+  contact:
+    name: Radio Browser
+    url: https://www.radio-browser.info/
+  license:
+    name: AGPL-3.0
+    url: https://www.gnu.org/licenses/agpl-3.0.html
+servers:
+- url: https://de1.api.radio-browser.info
+  description: Germany 1 mirror
+- url: https://nl1.api.radio-browser.info
+  description: Netherlands 1 mirror
+- url: https://at1.api.radio-browser.info
+  description: Austria 1 mirror
+- url: https://all.api.radio-browser.info
+  description: Round-robin pool entry (resolve via DNS)
+tags:
+- name: Categories
+  description: Aggregated counts of countries, languages, tags, codecs, and states.
+paths:
+  /json/countries:
+    get:
+      tags:
+      - Categories
+      operationId: listCountries
+      summary: List Countries
+      description: List all countries with the number of stations per country.
+      responses:
+        '200':
+          description: Country aggregates.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+  /json/countrycodes:
+    get:
+      tags:
+      - Categories
+      operationId: listCountryCodes
+      summary: List Country Codes
+      responses:
+        '200':
+          description: ISO 3166-1 country code aggregates.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+  /json/states:
+    get:
+      tags:
+      - Categories
+      operationId: listStates
+      summary: List States
+      description: List all states/regions with station counts.
+      responses:
+        '200':
+          description: State aggregates.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StateCategory'
+  /json/languages:
+    get:
+      tags:
+      - Categories
+      operationId: listLanguages
+      summary: List Languages
+      responses:
+        '200':
+          description: Language aggregates.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+  /json/tags:
+    get:
+      tags:
+      - Categories
+      operationId: listTags
+      summary: List Tags
+      responses:
+        '200':
+          description: Tag aggregates.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+  /json/codecs:
+    get:
+      tags:
+      - Categories
+      operationId: listCodecs
+      summary: List Codecs
+      responses:
+        '200':
+          description: Codec aggregates.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+components:
+  schemas:
+    Category:
+      type: object
+      description: An aggregate count of stations for a category (country, language, tag, or codec).
+      properties:
+        name:
+          type: string
+        stationcount:
+          type: integer
+    StateCategory:
+      allOf:
+      - $ref: '#/components/schemas/Category'
+      - type: object
+        properties:
+          country:
+            type: string

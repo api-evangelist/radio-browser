@@ -1,0 +1,275 @@
+openapi: 3.0.3
+info:
+  title: Radio Browser Categories Service API
+  description: 'Radio Browser is a free community-driven directory of internet radio
+
+    stations. The API exposes the complete station database along with
+
+    metadata (countries, languages, codecs, tags, states) and supports
+
+    click counting, voting, and station submission.
+
+
+    Servers are reached through a round-robin DNS pool. Resolve
+
+    `all.api.radio-browser.info` to obtain the list of mirrors, then call
+
+    one of them (for example `de1.api.radio-browser.info`). The base URL
+
+    `api.radio-browser.info` also resolves to one of the active mirrors.
+
+
+    Clients MUST send a descriptive `User-Agent` header in the form
+
+    `appname/appversion`. Voting is throttled to one vote per station per
+
+    IP every 10 minutes. Click counts are aggregated once per station per
+
+    IP per 24 hours.
+
+    '
+  version: 0.7.44
+  contact:
+    name: Radio Browser
+    url: https://www.radio-browser.info/
+  license:
+    name: AGPL-3.0
+    url: https://www.gnu.org/licenses/agpl-3.0.html
+servers:
+- url: https://de1.api.radio-browser.info
+  description: Germany 1 mirror
+- url: https://nl1.api.radio-browser.info
+  description: Netherlands 1 mirror
+- url: https://at1.api.radio-browser.info
+  description: Austria 1 mirror
+- url: https://all.api.radio-browser.info
+  description: Round-robin pool entry (resolve via DNS)
+tags:
+- name: Service
+  description: Server stats, mirror discovery, and configuration.
+paths:
+  /json/stats:
+    get:
+      tags:
+      - Service
+      operationId: getStats
+      summary: Get Service Stats
+      responses:
+        '200':
+          description: Service statistics.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stats'
+  /json/servers:
+    get:
+      tags:
+      - Service
+      operationId: listServers
+      summary: List Mirror Servers
+      responses:
+        '200':
+          description: Known mirror servers.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MirrorServer'
+  /json/config:
+    get:
+      tags:
+      - Service
+      operationId: getConfig
+      summary: Get Server Config
+      responses:
+        '200':
+          description: Server configuration values.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /json/checks:
+    get:
+      tags:
+      - Service
+      operationId: listChecks
+      summary: List Station Checks
+      description: List recent stream-health check results.
+      parameters:
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          description: Check records.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StationCheck'
+  /json/clicks:
+    get:
+      tags:
+      - Service
+      operationId: listClicks
+      summary: List Click Events
+      parameters:
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          description: Click records.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StationClick'
+components:
+  schemas:
+    Stats:
+      type: object
+      properties:
+        supported_version:
+          type: integer
+        software_version:
+          type: string
+        status:
+          type: string
+        stations:
+          type: integer
+        stations_broken:
+          type: integer
+        tags:
+          type: integer
+        clicks_last_hour:
+          type: integer
+        clicks_last_day:
+          type: integer
+        languages:
+          type: integer
+        countries:
+          type: integer
+    StationCheck:
+      type: object
+      properties:
+        checkuuid:
+          type: string
+          format: uuid
+        stationuuid:
+          type: string
+          format: uuid
+        source:
+          type: string
+        codec:
+          type: string
+        bitrate:
+          type: integer
+        hls:
+          type: integer
+        ok:
+          type: integer
+          enum:
+          - 0
+          - 1
+        timestamp:
+          type: string
+        timestamp_iso8601:
+          type: string
+          format: date-time
+        urlcache:
+          type: string
+          format: uri
+        metainfo_overrides_database:
+          type: integer
+        public:
+          type: integer
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        tags:
+          type: string
+          nullable: true
+        countrycode:
+          type: string
+          nullable: true
+        homepage:
+          type: string
+          nullable: true
+        favicon:
+          type: string
+          nullable: true
+        loadbalancer:
+          type: integer
+          nullable: true
+        do_not_index:
+          type: integer
+          nullable: true
+        countrysubdivisioncode:
+          type: string
+          nullable: true
+        server_software:
+          type: string
+          nullable: true
+        sampling:
+          type: integer
+          nullable: true
+        timing_ms:
+          type: integer
+        languagecodes:
+          type: string
+          nullable: true
+        ssl_error:
+          type: integer
+        geo_lat:
+          type: number
+          format: float
+          nullable: true
+        geo_long:
+          type: number
+          format: float
+          nullable: true
+    StationClick:
+      type: object
+      properties:
+        stationuuid:
+          type: string
+          format: uuid
+        clickuuid:
+          type: string
+          format: uuid
+        clicktimestamp_iso8601:
+          type: string
+          format: date-time
+        clicktimestamp:
+          type: string
+    MirrorServer:
+      type: object
+      properties:
+        ip:
+          type: string
+        name:
+          type: string
+  parameters:
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        minimum: 0
+        default: 100000
+      description: Maximum rows to return.
+    Offset:
+      in: query
+      name: offset
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+      description: Starting offset for pagination.
