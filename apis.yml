@@ -7,7 +7,19 @@ description: >-
   (all.api.radio-browser.info) and the canonical server software (radiobrowser-api-rust) is released under AGPL-3.0, so
   anyone can self-host an additional mirror.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: free
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Free
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/radio-browser.png
 tags:
   - Music
   - Radio
@@ -27,56 +39,182 @@ x-type: opensource
 x-tier: 3
 x-tier-reason: bulk-registered-from-public-apis
 apis:
-  - aid: radio-browser:radio-browser-api
-    name: Radio Browser API
-    description: >-
-      Public REST API exposing internet radio stations, category aggregates (countries, states, languages, tags,
-      codecs), click counting, voting, station submission, mirror discovery, and service statistics. Response formats
-      include JSON, XML, CSV, M3U, PLS, XSPF, and TTL.
-    humanURL: https://api.radio-browser.info/
-    baseURL: https://de1.api.radio-browser.info
-    tags:
-      - Music
-      - Radio
-      - Streaming
-    properties:
-      - type: Documentation
-        url: https://api.radio-browser.info/
-      - type: APIReference
-        url: https://docs.radio-browser.info/
-      - type: OpenAPI
-        url: openapi/radio-browser-openapi.yml
-      - type: JSONSchema
-        url: json-schema/radio-browser-station-schema.json
-      - type: JSONSchema
-        url: json-schema/radio-browser-category-schema.json
-      - type: JSONSchema
-        url: json-schema/radio-browser-stats-schema.json
-      - type: JSONStructure
-        url: json-structure/radio-browser-station-structure.json
-      - type: JSONStructure
-        url: json-structure/radio-browser-category-structure.json
-      - type: JSONLD
-        url: json-ld/radio-browser-context.jsonld
-      - type: Examples
-        url: examples/radio-browser-list-stations-example.json
-      - type: Examples
-        url: examples/radio-browser-search-stations-example.json
-      - type: Examples
-        url: examples/radio-browser-list-countries-example.json
-      - type: Examples
-        url: examples/radio-browser-list-tags-example.json
-      - type: Examples
-        url: examples/radio-browser-click-station-example.json
-      - type: Examples
-        url: examples/radio-browser-vote-station-example.json
-      - type: Examples
-        url: examples/radio-browser-get-stats-example.json
-      - type: Authentication
-        url: https://docs.radio-browser.info/
-        description: No authentication required. Clients MUST send a descriptive User-Agent header.
-      - type: RateLimits
-        url: rate-limits/radio-browser-rate-limits.yml
+- aid: radio-browser:radio-browser-categories-api
+  name: Radio Browser Categories API
+  description: Aggregated counts of countries, languages, tags, codecs, and states.
+  humanURL: https://api.radio-browser.info/
+  baseURL: https://de1.api.radio-browser.info
+  tags:
+  - Categories
+  properties:
+  - type: OpenAPI
+    url: openapi/radio-browser-categories-api-openapi.yml
+  - type: Documentation
+    url: https://api.radio-browser.info/
+  - type: APIReference
+    url: https://docs.radio-browser.info/
+  - type: JSONSchema
+    url: json-schema/radio-browser-station-schema.json
+  - type: JSONSchema
+    url: json-schema/radio-browser-category-schema.json
+  - type: JSONSchema
+    url: json-schema/radio-browser-stats-schema.json
+  - type: JSONStructure
+    url: json-structure/radio-browser-station-structure.json
+  - type: JSONStructure
+    url: json-structure/radio-browser-category-structure.json
+  - type: JSONLD
+    url: json-ld/radio-browser-context.jsonld
+  - type: Examples
+    url: examples/radio-browser-list-stations-example.json
+  - type: Examples
+    url: examples/radio-browser-search-stations-example.json
+  - type: Examples
+    url: examples/radio-browser-list-countries-example.json
+  - type: Examples
+    url: examples/radio-browser-list-tags-example.json
+  - type: Examples
+    url: examples/radio-browser-click-station-example.json
+  - type: Examples
+    url: examples/radio-browser-vote-station-example.json
+  - type: Examples
+    url: examples/radio-browser-get-stats-example.json
+  - type: Authentication
+    url: https://docs.radio-browser.info/
+  - type: RateLimits
+    url: rate-limits/radio-browser-rate-limits.yml
+- aid: radio-browser:radio-browser-interactions-api
+  name: Radio Browser Interactions API
+  description: Click counting, voting, and station submission.
+  humanURL: https://api.radio-browser.info/
+  baseURL: https://de1.api.radio-browser.info
+  tags:
+  - Interactions
+  properties:
+  - type: OpenAPI
+    url: openapi/radio-browser-interactions-api-openapi.yml
+  - type: Documentation
+    url: https://api.radio-browser.info/
+  - type: APIReference
+    url: https://docs.radio-browser.info/
+  - type: JSONSchema
+    url: json-schema/radio-browser-station-schema.json
+  - type: JSONSchema
+    url: json-schema/radio-browser-category-schema.json
+  - type: JSONSchema
+    url: json-schema/radio-browser-stats-schema.json
+  - type: JSONStructure
+    url: json-structure/radio-browser-station-structure.json
+  - type: JSONStructure
+    url: json-structure/radio-browser-category-structure.json
+  - type: JSONLD
+    url: json-ld/radio-browser-context.jsonld
+  - type: Examples
+    url: examples/radio-browser-list-stations-example.json
+  - type: Examples
+    url: examples/radio-browser-search-stations-example.json
+  - type: Examples
+    url: examples/radio-browser-list-countries-example.json
+  - type: Examples
+    url: examples/radio-browser-list-tags-example.json
+  - type: Examples
+    url: examples/radio-browser-click-station-example.json
+  - type: Examples
+    url: examples/radio-browser-vote-station-example.json
+  - type: Examples
+    url: examples/radio-browser-get-stats-example.json
+  - type: Authentication
+    url: https://docs.radio-browser.info/
+  - type: RateLimits
+    url: rate-limits/radio-browser-rate-limits.yml
+- aid: radio-browser:radio-browser-service-api
+  name: Radio Browser Service API
+  description: Server stats, mirror discovery, and configuration.
+  humanURL: https://api.radio-browser.info/
+  baseURL: https://de1.api.radio-browser.info
+  tags:
+  - Service
+  properties:
+  - type: OpenAPI
+    url: openapi/radio-browser-service-api-openapi.yml
+  - type: Documentation
+    url: https://api.radio-browser.info/
+  - type: APIReference
+    url: https://docs.radio-browser.info/
+  - type: JSONSchema
+    url: json-schema/radio-browser-station-schema.json
+  - type: JSONSchema
+    url: json-schema/radio-browser-category-schema.json
+  - type: JSONSchema
+    url: json-schema/radio-browser-stats-schema.json
+  - type: JSONStructure
+    url: json-structure/radio-browser-station-structure.json
+  - type: JSONStructure
+    url: json-structure/radio-browser-category-structure.json
+  - type: JSONLD
+    url: json-ld/radio-browser-context.jsonld
+  - type: Examples
+    url: examples/radio-browser-list-stations-example.json
+  - type: Examples
+    url: examples/radio-browser-search-stations-example.json
+  - type: Examples
+    url: examples/radio-browser-list-countries-example.json
+  - type: Examples
+    url: examples/radio-browser-list-tags-example.json
+  - type: Examples
+    url: examples/radio-browser-click-station-example.json
+  - type: Examples
+    url: examples/radio-browser-vote-station-example.json
+  - type: Examples
+    url: examples/radio-browser-get-stats-example.json
+  - type: Authentication
+    url: https://docs.radio-browser.info/
+  - type: RateLimits
+    url: rate-limits/radio-browser-rate-limits.yml
+- aid: radio-browser:radio-browser-stations-api
+  name: Radio Browser Stations API
+  description: Browse, search, and list radio stations.
+  humanURL: https://api.radio-browser.info/
+  baseURL: https://de1.api.radio-browser.info
+  tags:
+  - Stations
+  properties:
+  - type: OpenAPI
+    url: openapi/radio-browser-stations-api-openapi.yml
+  - type: Documentation
+    url: https://api.radio-browser.info/
+  - type: APIReference
+    url: https://docs.radio-browser.info/
+  - type: JSONSchema
+    url: json-schema/radio-browser-station-schema.json
+  - type: JSONSchema
+    url: json-schema/radio-browser-category-schema.json
+  - type: JSONSchema
+    url: json-schema/radio-browser-stats-schema.json
+  - type: JSONStructure
+    url: json-structure/radio-browser-station-structure.json
+  - type: JSONStructure
+    url: json-structure/radio-browser-category-structure.json
+  - type: JSONLD
+    url: json-ld/radio-browser-context.jsonld
+  - type: Examples
+    url: examples/radio-browser-list-stations-example.json
+  - type: Examples
+    url: examples/radio-browser-search-stations-example.json
+  - type: Examples
+    url: examples/radio-browser-list-countries-example.json
+  - type: Examples
+    url: examples/radio-browser-list-tags-example.json
+  - type: Examples
+    url: examples/radio-browser-click-station-example.json
+  - type: Examples
+    url: examples/radio-browser-vote-station-example.json
+  - type: Examples
+    url: examples/radio-browser-get-stats-example.json
+  - type: Authentication
+    url: https://docs.radio-browser.info/
+  - type: RateLimits
+    url: rate-limits/radio-browser-rate-limits.yml
 common:
   - type: AgenticAccess
     url: agentic-access/radio-browser-agentic-access.yml
