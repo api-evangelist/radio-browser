@@ -1,0 +1,714 @@
+openapi: 3.0.3
+info:
+  title: Radio Browser API
+  description: |
+    Radio Browser is a free community-driven directory of internet radio
+    stations. The API exposes the complete station database along with
+    metadata (countries, languages, codecs, tags, states) and supports
+    click counting, voting, and station submission.
+
+    Servers are reached through a round-robin DNS pool. Resolve
+    `all.api.radio-browser.info` to obtain the list of mirrors, then call
+    one of them (for example `de1.api.radio-browser.info`). The base URL
+    `api.radio-browser.info` also resolves to one of the active mirrors.
+
+    Clients MUST send a descriptive `User-Agent` header in the form
+    `appname/appversion`. Voting is throttled to one vote per station per
+    IP every 10 minutes. Click counts are aggregated once per station per
+    IP per 24 hours.
+  version: "0.7.44"
+  contact:
+    name: Radio Browser
+    url: https://www.radio-browser.info/
+  license:
+    name: AGPL-3.0
+    url: https://www.gnu.org/licenses/agpl-3.0.html
+servers:
+  - url: https://de1.api.radio-browser.info
+    description: Germany 1 mirror
+  - url: https://nl1.api.radio-browser.info
+    description: Netherlands 1 mirror
+  - url: https://at1.api.radio-browser.info
+    description: Austria 1 mirror
+  - url: https://all.api.radio-browser.info
+    description: Round-robin pool entry (resolve via DNS)
+tags:
+  - name: Stations
+    description: Browse, search, and list radio stations.
+  - name: Categories
+    description: Aggregated counts of countries, languages, tags, codecs, and states.
+  - name: Interactions
+    description: Click counting, voting, and station submission.
+  - name: Service
+    description: Server stats, mirror discovery, and configuration.
+paths:
+  /json/stations:
+    get:
+      tags: [Stations]
+      operationId: listStations
+      summary: List All Stations
+      description: Return the full collection of radio stations as JSON.
+      parameters:
+        - $ref: '#/components/parameters/Offset'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/HideBroken'
+      responses:
+        '200':
+          description: Array of station objects.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Station'
+  /json/stations/search:
+    get:
+      tags: [Stations]
+      operationId: searchStations
+      summary: Search Stations
+      description: Advanced search across the station database using multiple optional filters.
+      parameters:
+        - in: query
+          name: name
+          schema: { type: string }
+          description: Match station name (substring, case-insensitive).
+        - in: query
+          name: nameExact
+          schema: { type: boolean, default: false }
+        - in: query
+          name: country
+          schema: { type: string }
+        - in: query
+          name: countrycode
+          schema: { type: string, description: ISO 3166-1 alpha-2 country code. }
+        - in: query
+          name: state
+          schema: { type: string }
+        - in: query
+          name: language
+          schema: { type: string }
+        - in: query
+          name: tag
+          schema: { type: string }
+        - in: query
+          name: tagList
+          schema: { type: string, description: Comma-separated tag list. }
+        - in: query
+          name: codec
+          schema: { type: string }
+        - in: query
+          name: bitrateMin
+          schema: { type: integer, minimum: 0 }
+        - in: query
+          name: bitrateMax
+          schema: { type: integer, minimum: 0 }
+        - in: query
+          name: order
+          schema:
+            type: string
+            enum: [name, url, homepage, favicon, tags, country, state, language, votes, codec, bitrate, lastcheckok, lastchecktime, clicktimestamp, clickcount, clicktrend, random]
+        - in: query
+          name: reverse
+          schema: { type: boolean, default: false }
+        - $ref: '#/components/parameters/Offset'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/HideBroken'
+      responses:
+        '200':
+          description: Filtered list of stations.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Station'
+  /json/stations/byuuid:
+    get:
+      tags: [Stations]
+      operationId: getStationsByUuid
+      summary: Get Stations By UUID
+      description: Return the stations matching the supplied station UUIDs.
+      parameters:
+        - in: query
+          name: uuids
+          required: true
+          schema: { type: string }
+          description: One UUID or a comma-separated list of UUIDs.
+      responses:
+        '200':
+          description: Array of matching stations.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Station'
+  /json/stations/byname/{searchterm}:
+    get:
+      tags: [Stations]
+      operationId: getStationsByName
+      summary: Get Stations By Name
+      parameters:
+        - in: path
+          name: searchterm
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Stations whose name matches the search term.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Station' }
+  /json/stations/bycountry/{searchterm}:
+    get:
+      tags: [Stations]
+      operationId: getStationsByCountry
+      summary: Get Stations By Country
+      parameters:
+        - in: path
+          name: searchterm
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Stations registered in the given country.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Station' }
+  /json/stations/bycountrycodeexact/{searchterm}:
+    get:
+      tags: [Stations]
+      operationId: getStationsByCountryCode
+      summary: Get Stations By Country Code
+      parameters:
+        - in: path
+          name: searchterm
+          required: true
+          schema: { type: string, description: ISO 3166-1 alpha-2 country code. }
+      responses:
+        '200':
+          description: Stations matching the country code exactly.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Station' }
+  /json/stations/bylanguage/{searchterm}:
+    get:
+      tags: [Stations]
+      operationId: getStationsByLanguage
+      summary: Get Stations By Language
+      parameters:
+        - in: path
+          name: searchterm
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Stations broadcasting in the given language.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Station' }
+  /json/stations/bytag/{searchterm}:
+    get:
+      tags: [Stations]
+      operationId: getStationsByTag
+      summary: Get Stations By Tag
+      parameters:
+        - in: path
+          name: searchterm
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Stations tagged with the given keyword.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Station' }
+  /json/stations/bycodec/{searchterm}:
+    get:
+      tags: [Stations]
+      operationId: getStationsByCodec
+      summary: Get Stations By Codec
+      parameters:
+        - in: path
+          name: searchterm
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Stations using the given audio codec.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Station' }
+  /json/stations/byurl:
+    get:
+      tags: [Stations]
+      operationId: getStationsByUrl
+      summary: Get Stations By Stream URL
+      parameters:
+        - in: query
+          name: url
+          required: true
+          schema: { type: string, format: uri }
+      responses:
+        '200':
+          description: Stations registered with the given stream URL.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Station' }
+  /json/stations/topclick:
+    get:
+      tags: [Stations]
+      operationId: getTopClickStations
+      summary: Get Top Clicked Stations
+      parameters:
+        - in: path
+          name: rowcount
+          schema: { type: integer, minimum: 1 }
+          required: false
+      responses:
+        '200':
+          description: Stations ranked by click count.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Station' }
+  /json/stations/topvote:
+    get:
+      tags: [Stations]
+      operationId: getTopVoteStations
+      summary: Get Top Voted Stations
+      responses:
+        '200':
+          description: Stations ranked by vote count.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Station' }
+  /json/stations/lastclick:
+    get:
+      tags: [Stations]
+      operationId: getLastClickStations
+      summary: Get Recently Clicked Stations
+      responses:
+        '200':
+          description: Stations sorted by most recent click.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Station' }
+  /json/stations/lastchange:
+    get:
+      tags: [Stations]
+      operationId: getLastChangeStations
+      summary: Get Recently Changed Stations
+      responses:
+        '200':
+          description: Stations sorted by most recent change.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Station' }
+  /json/stations/broken:
+    get:
+      tags: [Stations]
+      operationId: getBrokenStations
+      summary: Get Broken Stations
+      responses:
+        '200':
+          description: Stations whose latest health check failed.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Station' }
+  /json/countries:
+    get:
+      tags: [Categories]
+      operationId: listCountries
+      summary: List Countries
+      description: List all countries with the number of stations per country.
+      responses:
+        '200':
+          description: Country aggregates.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Category' }
+  /json/countrycodes:
+    get:
+      tags: [Categories]
+      operationId: listCountryCodes
+      summary: List Country Codes
+      responses:
+        '200':
+          description: ISO 3166-1 country code aggregates.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Category' }
+  /json/states:
+    get:
+      tags: [Categories]
+      operationId: listStates
+      summary: List States
+      description: List all states/regions with station counts.
+      responses:
+        '200':
+          description: State aggregates.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/StateCategory' }
+  /json/languages:
+    get:
+      tags: [Categories]
+      operationId: listLanguages
+      summary: List Languages
+      responses:
+        '200':
+          description: Language aggregates.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Category' }
+  /json/tags:
+    get:
+      tags: [Categories]
+      operationId: listTags
+      summary: List Tags
+      responses:
+        '200':
+          description: Tag aggregates.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Category' }
+  /json/codecs:
+    get:
+      tags: [Categories]
+      operationId: listCodecs
+      summary: List Codecs
+      responses:
+        '200':
+          description: Codec aggregates.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Category' }
+  /json/url/{stationuuid}:
+    get:
+      tags: [Interactions]
+      operationId: clickStation
+      summary: Click Station
+      description: |
+        Register a play (click) for the given station and return the resolved
+        stream URL. Clients SHOULD call this every time the user starts
+        playback. Counted once per IP per station per 24 hours.
+      parameters:
+        - in: path
+          name: stationuuid
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        '200':
+          description: Click acknowledged.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClickResult'
+  /json/vote/{stationuuid}:
+    get:
+      tags: [Interactions]
+      operationId: voteStation
+      summary: Vote For Station
+      description: Vote for a station. Throttled to one vote per station per IP every 10 minutes.
+      parameters:
+        - in: path
+          name: stationuuid
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        '200':
+          description: Vote outcome.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResult'
+  /json/add:
+    post:
+      tags: [Interactions]
+      operationId: addStation
+      summary: Submit Station
+      description: Submit a new radio station to the directory.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/StationSubmission'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StationSubmission'
+      responses:
+        '200':
+          description: Submission result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddStationResult'
+  /json/stats:
+    get:
+      tags: [Service]
+      operationId: getStats
+      summary: Get Service Stats
+      responses:
+        '200':
+          description: Service statistics.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stats'
+  /json/servers:
+    get:
+      tags: [Service]
+      operationId: listServers
+      summary: List Mirror Servers
+      responses:
+        '200':
+          description: Known mirror servers.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/MirrorServer' }
+  /json/config:
+    get:
+      tags: [Service]
+      operationId: getConfig
+      summary: Get Server Config
+      responses:
+        '200':
+          description: Server configuration values.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /json/checks:
+    get:
+      tags: [Service]
+      operationId: listChecks
+      summary: List Station Checks
+      description: List recent stream-health check results.
+      parameters:
+        - $ref: '#/components/parameters/Offset'
+        - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          description: Check records.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/StationCheck' }
+  /json/clicks:
+    get:
+      tags: [Service]
+      operationId: listClicks
+      summary: List Click Events
+      parameters:
+        - $ref: '#/components/parameters/Offset'
+        - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          description: Click records.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/StationClick' }
+components:
+  parameters:
+    Offset:
+      in: query
+      name: offset
+      schema: { type: integer, minimum: 0, default: 0 }
+      description: Starting offset for pagination.
+    Limit:
+      in: query
+      name: limit
+      schema: { type: integer, minimum: 0, default: 100000 }
+      description: Maximum rows to return.
+    HideBroken:
+      in: query
+      name: hidebroken
+      schema: { type: boolean, default: false }
+      description: Exclude stations whose last health check failed.
+  schemas:
+    Station:
+      type: object
+      description: A radio station entry in the Radio Browser directory.
+      properties:
+        changeuuid: { type: string, format: uuid }
+        stationuuid: { type: string, format: uuid }
+        serveruuid: { type: string, format: uuid, nullable: true }
+        name: { type: string }
+        url: { type: string, format: uri }
+        url_resolved: { type: string, format: uri }
+        homepage: { type: string, format: uri }
+        favicon: { type: string, format: uri }
+        tags: { type: string, description: Comma-separated tag list. }
+        country: { type: string }
+        countrycode: { type: string, description: ISO 3166-1 alpha-2. }
+        iso_3166_2: { type: string }
+        state: { type: string }
+        language: { type: string, description: Comma-separated language list. }
+        languagecodes: { type: string, description: Comma-separated ISO 639 codes. }
+        votes: { type: integer }
+        lastchangetime: { type: string }
+        lastchangetime_iso8601: { type: string, format: date-time }
+        codec: { type: string }
+        bitrate: { type: integer, description: Kilobits per second. }
+        hls: { type: integer, enum: [0, 1] }
+        lastcheckok: { type: integer, enum: [0, 1] }
+        lastchecktime: { type: string }
+        lastchecktime_iso8601: { type: string, format: date-time }
+        lastcheckoktime: { type: string }
+        lastcheckoktime_iso8601: { type: string, format: date-time }
+        lastlocalchecktime: { type: string }
+        lastlocalchecktime_iso8601: { type: string, format: date-time }
+        clicktimestamp: { type: string }
+        clicktimestamp_iso8601: { type: string, format: date-time, nullable: true }
+        clickcount: { type: integer }
+        clicktrend: { type: integer }
+        ssl_error: { type: integer, enum: [0, 1] }
+        geo_lat: { type: number, format: float, nullable: true }
+        geo_long: { type: number, format: float, nullable: true }
+        geo_distance: { type: number, format: float, nullable: true }
+        has_extended_info: { type: boolean }
+    Category:
+      type: object
+      description: An aggregate count of stations for a category (country, language, tag, or codec).
+      properties:
+        name: { type: string }
+        stationcount: { type: integer }
+    StateCategory:
+      allOf:
+        - $ref: '#/components/schemas/Category'
+        - type: object
+          properties:
+            country: { type: string }
+    ClickResult:
+      type: object
+      properties:
+        ok: { type: boolean }
+        message: { type: string }
+        stationuuid: { type: string, format: uuid }
+        name: { type: string }
+        url: { type: string, format: uri }
+    StatusResult:
+      type: object
+      properties:
+        ok: { type: boolean }
+        message: { type: string }
+    StationSubmission:
+      type: object
+      required: [name, url]
+      properties:
+        name: { type: string }
+        url: { type: string, format: uri }
+        homepage: { type: string, format: uri }
+        favicon: { type: string, format: uri }
+        country: { type: string }
+        countrycode: { type: string }
+        state: { type: string }
+        language: { type: string }
+        tags: { type: string }
+        geo_lat: { type: number, format: float }
+        geo_long: { type: number, format: float }
+    AddStationResult:
+      type: object
+      properties:
+        ok: { type: boolean }
+        message: { type: string }
+        uuid: { type: string, format: uuid }
+    Stats:
+      type: object
+      properties:
+        supported_version: { type: integer }
+        software_version: { type: string }
+        status: { type: string }
+        stations: { type: integer }
+        stations_broken: { type: integer }
+        tags: { type: integer }
+        clicks_last_hour: { type: integer }
+        clicks_last_day: { type: integer }
+        languages: { type: integer }
+        countries: { type: integer }
+    MirrorServer:
+      type: object
+      properties:
+        ip: { type: string }
+        name: { type: string }
+    StationCheck:
+      type: object
+      properties:
+        checkuuid: { type: string, format: uuid }
+        stationuuid: { type: string, format: uuid }
+        source: { type: string }
+        codec: { type: string }
+        bitrate: { type: integer }
+        hls: { type: integer }
+        ok: { type: integer, enum: [0, 1] }
+        timestamp: { type: string }
+        timestamp_iso8601: { type: string, format: date-time }
+        urlcache: { type: string, format: uri }
+        metainfo_overrides_database: { type: integer }
+        public: { type: integer, nullable: true }
+        name: { type: string, nullable: true }
+        description: { type: string, nullable: true }
+        tags: { type: string, nullable: true }
+        countrycode: { type: string, nullable: true }
+        homepage: { type: string, nullable: true }
+        favicon: { type: string, nullable: true }
+        loadbalancer: { type: integer, nullable: true }
+        do_not_index: { type: integer, nullable: true }
+        countrysubdivisioncode: { type: string, nullable: true }
+        server_software: { type: string, nullable: true }
+        sampling: { type: integer, nullable: true }
+        timing_ms: { type: integer }
+        languagecodes: { type: string, nullable: true }
+        ssl_error: { type: integer }
+        geo_lat: { type: number, format: float, nullable: true }
+        geo_long: { type: number, format: float, nullable: true }
+    StationClick:
+      type: object
+      properties:
+        stationuuid: { type: string, format: uuid }
+        clickuuid: { type: string, format: uuid }
+        clicktimestamp_iso8601: { type: string, format: date-time }
+        clicktimestamp: { type: string }

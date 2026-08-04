@@ -1,0 +1,20 @@
+{
+  "provider": "radio-browser",
+  "sources": [
+    "radio-browser-categories-api-openapi.yml",
+    "radio-browser-interactions-api-openapi.yml",
+    "radio-browser-service-api-openapi.yml",
+    "radio-browser-stations-api-openapi.yml"
+  ],
+  "outputs": [
+    "radio-browser-categories-api-openapi.yml",
+    "radio-browser-interactions-api-openapi.yml",
+    "radio-browser-service-api-openapi.yml",
+    "radio-browser-stations-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
