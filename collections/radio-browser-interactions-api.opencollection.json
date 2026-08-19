@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Radio Browser Categories Interactions API",
+    "version": "0.7.44"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Interactions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Click Station",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/url/:stationuuid",
+            "params": [
+              {
+                "name": "stationuuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Register a play (click) for the given station and return the resolved\nstream URL. Clients SHOULD call this every time the user starts\nplayback. Counted once per IP per station per 24 hours.\n"
+        },
+        {
+          "info": {
+            "name": "Vote For Station",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/vote/:stationuuid",
+            "params": [
+              {
+                "name": "stationuuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Vote for a station. Throttled to one vote per station per IP every 10 minutes."
+        },
+        {
+          "info": {
+            "name": "Submit Station",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://de1.api.radio-browser.info/json/add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a new radio station to the directory."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

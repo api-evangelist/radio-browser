@@ -1,0 +1,452 @@
+{
+  "item": [
+    {
+      "id": "c0e438fe-bdb0-4090-b0fc-2b57f5f02058",
+      "name": "Categories",
+      "description": {
+        "content": "Aggregated counts of countries, languages, tags, codecs, and states.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "86ece355-1d72-48c6-9c0b-6eb479f8df94",
+          "name": "List Countries",
+          "request": {
+            "name": "List Countries",
+            "description": {
+              "content": "List all countries with the number of stations per country.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json",
+                "countries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb497b59-8dd3-4e26-aac0-211a46c70664",
+              "name": "Country aggregates.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "countries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"stationcount\": 9902\n  },\n  {\n    \"name\": \"string\",\n    \"stationcount\": 6712\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c93dac7c-37cc-405a-a451-d673252af138",
+          "name": "List Country Codes",
+          "request": {
+            "name": "List Country Codes",
+            "description": {},
+            "url": {
+              "path": [
+                "json",
+                "countrycodes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "29dad232-8d37-4c9b-9514-08127af55958",
+              "name": "ISO 3166-1 country code aggregates.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "countrycodes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"stationcount\": 9902\n  },\n  {\n    \"name\": \"string\",\n    \"stationcount\": 6712\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "750f7f9f-12aa-4abb-9317-3dc84a288690",
+          "name": "List States",
+          "request": {
+            "name": "List States",
+            "description": {
+              "content": "List all states/regions with station counts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json",
+                "states"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a8de710c-3f12-4ff8-ad76-468bb95f5769",
+              "name": "State aggregates.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "states"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"stationcount\": 9088,\n    \"country\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"stationcount\": 9132,\n    \"country\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c0d1333-c481-4ec0-b56d-66394b34139e",
+          "name": "List Languages",
+          "request": {
+            "name": "List Languages",
+            "description": {},
+            "url": {
+              "path": [
+                "json",
+                "languages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8808c34f-be1a-4d4d-afa6-16e46484a8d7",
+              "name": "Language aggregates.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "languages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"stationcount\": 9902\n  },\n  {\n    \"name\": \"string\",\n    \"stationcount\": 6712\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4fc65675-4ce2-401b-8aa3-484cd8e19d47",
+          "name": "List Tags",
+          "request": {
+            "name": "List Tags",
+            "description": {},
+            "url": {
+              "path": [
+                "json",
+                "tags"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "04c71bfd-923d-46e6-9efc-7970b51cf28c",
+              "name": "Tag aggregates.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "tags"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"stationcount\": 9902\n  },\n  {\n    \"name\": \"string\",\n    \"stationcount\": 6712\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "06c600eb-b9d0-42f7-8bbf-81dfb7e6842b",
+          "name": "List Codecs",
+          "request": {
+            "name": "List Codecs",
+            "description": {},
+            "url": {
+              "path": [
+                "json",
+                "codecs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bcdd89ba-f549-4c6f-a04a-f6364a19acae",
+              "name": "Codec aggregates.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "codecs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"stationcount\": 9902\n  },\n  {\n    \"name\": \"string\",\n    \"stationcount\": 6712\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://de1.api.radio-browser.info",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "16c53441-895c-4711-8b19-f2c8818b1ce0",
+    "name": "Radio Browser Categories API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Radio Browser is a free community-driven directory of internet radio\nstations. The API exposes the complete station database along with\nmetadata (countries, languages, codecs, tags, states) and supports\nclick counting, voting, and station submission.\n\nServers are reached through a round-robin DNS pool. Resolve\n`all.api.radio-browser.info` to obtain the list of mirrors, then call\none of them (for example `de1.api.radio-browser.info`). The base URL\n`api.radio-browser.info` also resolves to one of the active mirrors.\n\nClients MUST send a descriptive `User-Agent` header in the form\n`appname/appversion`. Voting is throttled to one vote per station per\nIP every 10 minutes. Click counts are aggregated once per station per\nIP per 24 hours.\n\n\nContact Support:\n Name: Radio Browser",
+      "type": "text/plain"
+    }
+  }
+}

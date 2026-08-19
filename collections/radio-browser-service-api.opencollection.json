@@ -1,0 +1,101 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Radio Browser Categories Service API",
+    "version": "0.7.44"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Service",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Service Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/stats"
+          },
+          "docs": "Get Service Stats"
+        },
+        {
+          "info": {
+            "name": "List Mirror Servers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/servers"
+          },
+          "docs": "List Mirror Servers"
+        },
+        {
+          "info": {
+            "name": "Get Server Config",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/config"
+          },
+          "docs": "Get Server Config"
+        },
+        {
+          "info": {
+            "name": "List Station Checks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/checks",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Starting offset for pagination."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum rows to return."
+              }
+            ]
+          },
+          "docs": "List recent stream-health check results."
+        },
+        {
+          "info": {
+            "name": "List Click Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/clicks",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Starting offset for pagination."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum rows to return."
+              }
+            ]
+          },
+          "docs": "List Click Events"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

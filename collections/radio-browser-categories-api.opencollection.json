@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Radio Browser Categories API",
+    "version": "0.7.44"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Categories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/countries"
+          },
+          "docs": "List all countries with the number of stations per country."
+        },
+        {
+          "info": {
+            "name": "List Country Codes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/countrycodes"
+          },
+          "docs": "List Country Codes"
+        },
+        {
+          "info": {
+            "name": "List States",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/states"
+          },
+          "docs": "List all states/regions with station counts."
+        },
+        {
+          "info": {
+            "name": "List Languages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/languages"
+          },
+          "docs": "List Languages"
+        },
+        {
+          "info": {
+            "name": "List Tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/tags"
+          },
+          "docs": "List Tags"
+        },
+        {
+          "info": {
+            "name": "List Codecs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://de1.api.radio-browser.info/json/codecs"
+          },
+          "docs": "List Codecs"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

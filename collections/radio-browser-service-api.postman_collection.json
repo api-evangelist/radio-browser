@@ -1,0 +1,424 @@
+{
+  "item": [
+    {
+      "id": "bf767dee-8da8-4f57-8959-41855e6855e1",
+      "name": "Service",
+      "description": {
+        "content": "Server stats, mirror discovery, and configuration.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f761ddda-6960-45a1-92d1-11d5842f96e4",
+          "name": "Get Service Stats",
+          "request": {
+            "name": "Get Service Stats",
+            "description": {},
+            "url": {
+              "path": [
+                "json",
+                "stats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1758cb46-dc03-4f23-a9b1-92c6a8bf022b",
+              "name": "Service statistics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"supported_version\": 1573,\n  \"software_version\": \"string\",\n  \"status\": \"string\",\n  \"stations\": 5397,\n  \"stations_broken\": 8291,\n  \"tags\": 4131,\n  \"clicks_last_hour\": 437,\n  \"clicks_last_day\": 8996,\n  \"languages\": 2324,\n  \"countries\": 2875\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8e4225be-e4ef-4f72-8fa7-643f3ff57c86",
+          "name": "List Mirror Servers",
+          "request": {
+            "name": "List Mirror Servers",
+            "description": {},
+            "url": {
+              "path": [
+                "json",
+                "servers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9aeee8d0-d2fb-4713-a0f5-b238ce9faf52",
+              "name": "Known mirror servers.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "servers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"ip\": \"string\",\n    \"name\": \"string\"\n  },\n  {\n    \"ip\": \"string\",\n    \"name\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d8f556a0-e3f3-47ac-af10-8f5366df9a9e",
+          "name": "Get Server Config",
+          "request": {
+            "name": "Get Server Config",
+            "description": {},
+            "url": {
+              "path": [
+                "json",
+                "config"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ebfdb690-9aa2-445e-a660-30c6286a36c6",
+              "name": "Server configuration values.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "86f52147-29b9-4f72-9ba7-f888254f62ed",
+          "name": "List Station Checks",
+          "request": {
+            "name": "List Station Checks",
+            "description": {
+              "content": "List recent stream-health check results.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json",
+                "checks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Starting offset for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100000",
+                  "description": "Maximum rows to return."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "13027757-5816-47ac-84b5-e6594c825781",
+              "name": "Check records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "checks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"checkuuid\": \"d756992e-df0e-d890-f9ea-3627973f932b\",\n    \"stationuuid\": \"2052839e-f426-3174-880d-75474d3b00f1\",\n    \"source\": \"string\",\n    \"codec\": \"string\",\n    \"bitrate\": 6996,\n    \"hls\": 4673,\n    \"ok\": 1,\n    \"timestamp\": \"string\",\n    \"timestamp_iso8601\": \"2014-08-05T10:00:29.960Z\",\n    \"urlcache\": \"https://yFc.pfpnFdrrMTPd-H4JvGQ4MuX-QGlTA-hSNS3\",\n    \"metainfo_overrides_database\": 6548,\n    \"public\": 5342,\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"tags\": \"string\",\n    \"countrycode\": \"string\",\n    \"homepage\": \"string\",\n    \"favicon\": \"string\",\n    \"loadbalancer\": 1124,\n    \"do_not_index\": 537,\n    \"countrysubdivisioncode\": \"string\",\n    \"server_software\": \"string\",\n    \"sampling\": 1337,\n    \"timing_ms\": 6700,\n    \"languagecodes\": \"string\",\n    \"ssl_error\": 1872,\n    \"geo_lat\": 8428.694079216692,\n    \"geo_long\": 9904.080102046855\n  },\n  {\n    \"checkuuid\": \"f4d68e48-e130-1afb-6fa0-2ef0bd001c5c\",\n    \"stationuuid\": \"2ee2dd0f-c1bb-1435-0adf-abc75059c851\",\n    \"source\": \"string\",\n    \"codec\": \"string\",\n    \"bitrate\": 6934,\n    \"hls\": 6260,\n    \"ok\": 1,\n    \"timestamp\": \"string\",\n    \"timestamp_iso8601\": \"1975-04-15T04:10:55.256Z\",\n    \"urlcache\": \"https://am.mwbiaUy+2w\",\n    \"metainfo_overrides_database\": 3335,\n    \"public\": 9811,\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"tags\": \"string\",\n    \"countrycode\": \"string\",\n    \"homepage\": \"string\",\n    \"favicon\": \"string\",\n    \"loadbalancer\": 1758,\n    \"do_not_index\": 1131,\n    \"countrysubdivisioncode\": \"string\",\n    \"server_software\": \"string\",\n    \"sampling\": 5956,\n    \"timing_ms\": 9198,\n    \"languagecodes\": \"string\",\n    \"ssl_error\": 6843,\n    \"geo_lat\": 6263.028749039104,\n    \"geo_long\": 1787.8560560331503\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2efb9e02-eee2-4466-9945-d48ca5290c55",
+          "name": "List Click Events",
+          "request": {
+            "name": "List Click Events",
+            "description": {},
+            "url": {
+              "path": [
+                "json",
+                "clicks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Starting offset for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100000",
+                  "description": "Maximum rows to return."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "991537c8-8610-4801-9d50-75c48d029378",
+              "name": "Click records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "clicks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"stationuuid\": \"e06a3186-f6dc-3878-4bb4-e2909fed6137\",\n    \"clickuuid\": \"9dc37ed0-7834-a3d6-d009-b712df9fd6f5\",\n    \"clicktimestamp_iso8601\": \"2015-09-07T13:51:27.751Z\",\n    \"clicktimestamp\": \"string\"\n  },\n  {\n    \"stationuuid\": \"98ef42e1-fef9-5d99-b38b-dda4181cf9e6\",\n    \"clickuuid\": \"93cb38f9-a5ed-f45b-12e7-8d4506be9f4c\",\n    \"clicktimestamp_iso8601\": \"1956-11-18T21:37:57.433Z\",\n    \"clicktimestamp\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://de1.api.radio-browser.info",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b939657a-ec5a-4e65-a5b4-c6c572248581",
+    "name": "Radio Browser Categories Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Radio Browser is a free community-driven directory of internet radio\nstations. The API exposes the complete station database along with\nmetadata (countries, languages, codecs, tags, states) and supports\nclick counting, voting, and station submission.\n\nServers are reached through a round-robin DNS pool. Resolve\n`all.api.radio-browser.info` to obtain the list of mirrors, then call\none of them (for example `de1.api.radio-browser.info`). The base URL\n`api.radio-browser.info` also resolves to one of the active mirrors.\n\nClients MUST send a descriptive `User-Agent` header in the form\n`appname/appversion`. Voting is throttled to one vote per station per\nIP every 10 minutes. Click counts are aggregated once per station per\nIP per 24 hours.\n\n\nContact Support:\n Name: Radio Browser",
+      "type": "text/plain"
+    }
+  }
+}

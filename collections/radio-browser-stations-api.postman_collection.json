@@ -1,0 +1,1432 @@
+{
+  "item": [
+    {
+      "id": "dfaab20f-6420-477e-a9f0-f2d5b02b45dd",
+      "name": "Stations",
+      "description": {
+        "content": "Browse, search, and list radio stations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b351a792-6434-4d36-b97a-a9df7f9e9c32",
+          "name": "List All Stations",
+          "request": {
+            "name": "List All Stations",
+            "description": {
+              "content": "Return the full collection of radio stations as JSON.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json",
+                "stations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Starting offset for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100000",
+                  "description": "Maximum rows to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "hidebroken",
+                  "value": "false",
+                  "description": "Exclude stations whose last health check failed."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8a1b50bf-0b4a-4334-8fd2-11ced5ae7b11",
+              "name": "Array of station objects.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "stations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100000"
+                    },
+                    {
+                      "key": "hidebroken",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"changeuuid\": \"cdb98fbe-2dbe-18fb-e202-db457b97ec23\",\n    \"stationuuid\": \"bb6b3337-8ff4-8ad6-dc4d-fcba32f47b1a\",\n    \"serveruuid\": \"5690e687-a559-a3fa-6d0a-bc95a70b14a9\",\n    \"name\": \"string\",\n    \"url\": \"http://RQPOTbnnYIwwYkbJjQaaIfLXKFUFV.udoeHOpACSgE5qb.hHW6ap2IzmXeR7qf,HgxV+imdyvubQvW3id3\",\n    \"url_resolved\": \"http://CrgGsUEQJNPllwtcZGrdbFBdxeIR.meakjUlnsrH72UxfmWr16-U\",\n    \"homepage\": \"http://PHCoPdiDpAOZJne.eswuWlvMihep+is46yftFV2XbOdhbdH6F\",\n    \"favicon\": \"http://talGuPCC.fyqO2DxK5X+mZI7SuLJJsgnJA-MlSYEhZyjWQ286rwIOzSCSQWwGhgCkydT,m-lUa\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 8501,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2023-07-06T16:04:14.284Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 3965,\n    \"hls\": 0,\n    \"lastcheckok\": 0,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"2002-03-14T09:28:50.507Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1962-09-21T02:40:16.203Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1956-03-30T18:45:21.322Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"1977-10-15T22:37:43.400Z\",\n    \"clickcount\": 8464,\n    \"clicktrend\": 1437,\n    \"ssl_error\": 1,\n    \"geo_lat\": 676.2144715356789,\n    \"geo_long\": 620.009179673251,\n    \"geo_distance\": 4405.743926139783,\n    \"has_extended_info\": true\n  },\n  {\n    \"changeuuid\": \"56084f63-2f06-65df-fb03-e3f19c9a5556\",\n    \"stationuuid\": \"fec0c666-2a65-4dcf-0e7e-64d7be0c0127\",\n    \"serveruuid\": \"290c8493-2985-2f38-5d0f-1a9c372ad02f\",\n    \"name\": \"string\",\n    \"url\": \"http://yn.miJ0PGdUEEL78z8SxIAzSO0JqDkUFIdMvt8+.PSc22dOmkB+dz\",\n    \"url_resolved\": \"http://BYiOHVqMkOVapFQqKKPLmzxdVD.roDP3S0k74glLFWUJW7,9BkeD4l.L.DRh3-X5l,uwQpj1YGBR5GcpHXyl4gV\",\n    \"homepage\": \"https://WYdZEnZQhwPhHxzAslArRRmzmUyQDtw.afK0I+mVzJ78Tgwtn3S5tMz\",\n    \"favicon\": \"http://Mg.bnhvt+-kEl+T0XPv6NZN+WcaIhRKe3XH-sqWfT.weLjsXBq-UWfCX1zGD.Mcao-2o\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 7696,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2016-06-17T12:31:04.373Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 9069,\n    \"hls\": 1,\n    \"lastcheckok\": 1,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"1976-04-06T19:11:32.762Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1952-02-18T09:27:06.656Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1953-07-24T10:34:27.469Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"2007-07-29T23:17:26.632Z\",\n    \"clickcount\": 8951,\n    \"clicktrend\": 1464,\n    \"ssl_error\": 0,\n    \"geo_lat\": 6881.453715678994,\n    \"geo_long\": 9826.621077235974,\n    \"geo_distance\": 2068.9467957127927,\n    \"has_extended_info\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "da731bf1-1465-4c73-b540-51666605edad",
+          "name": "Search Stations",
+          "request": {
+            "name": "Search Stations",
+            "description": {
+              "content": "Advanced search across the station database using multiple optional filters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json",
+                "stations",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Match station name (substring, case-insensitive)."
+                },
+                {
+                  "disabled": false,
+                  "key": "nameExact",
+                  "value": "false"
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "countrycode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "tag",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "tagList",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "codec",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "bitrateMin",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "bitrateMax",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "reverse",
+                  "value": "false"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Starting offset for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100000",
+                  "description": "Maximum rows to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "hidebroken",
+                  "value": "false",
+                  "description": "Exclude stations whose last health check failed."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "197dc847-144d-40d8-8763-167429fa0cd2",
+              "name": "Filtered list of stations.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "stations",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nameExact",
+                      "value": "false"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "countrycode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagList",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "codec",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bitrateMin",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "bitrateMax",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reverse",
+                      "value": "false"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100000"
+                    },
+                    {
+                      "key": "hidebroken",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"changeuuid\": \"cdb98fbe-2dbe-18fb-e202-db457b97ec23\",\n    \"stationuuid\": \"bb6b3337-8ff4-8ad6-dc4d-fcba32f47b1a\",\n    \"serveruuid\": \"5690e687-a559-a3fa-6d0a-bc95a70b14a9\",\n    \"name\": \"string\",\n    \"url\": \"http://RQPOTbnnYIwwYkbJjQaaIfLXKFUFV.udoeHOpACSgE5qb.hHW6ap2IzmXeR7qf,HgxV+imdyvubQvW3id3\",\n    \"url_resolved\": \"http://CrgGsUEQJNPllwtcZGrdbFBdxeIR.meakjUlnsrH72UxfmWr16-U\",\n    \"homepage\": \"http://PHCoPdiDpAOZJne.eswuWlvMihep+is46yftFV2XbOdhbdH6F\",\n    \"favicon\": \"http://talGuPCC.fyqO2DxK5X+mZI7SuLJJsgnJA-MlSYEhZyjWQ286rwIOzSCSQWwGhgCkydT,m-lUa\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 8501,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2023-07-06T16:04:14.284Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 3965,\n    \"hls\": 0,\n    \"lastcheckok\": 0,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"2002-03-14T09:28:50.507Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1962-09-21T02:40:16.203Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1956-03-30T18:45:21.322Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"1977-10-15T22:37:43.400Z\",\n    \"clickcount\": 8464,\n    \"clicktrend\": 1437,\n    \"ssl_error\": 1,\n    \"geo_lat\": 676.2144715356789,\n    \"geo_long\": 620.009179673251,\n    \"geo_distance\": 4405.743926139783,\n    \"has_extended_info\": true\n  },\n  {\n    \"changeuuid\": \"56084f63-2f06-65df-fb03-e3f19c9a5556\",\n    \"stationuuid\": \"fec0c666-2a65-4dcf-0e7e-64d7be0c0127\",\n    \"serveruuid\": \"290c8493-2985-2f38-5d0f-1a9c372ad02f\",\n    \"name\": \"string\",\n    \"url\": \"http://yn.miJ0PGdUEEL78z8SxIAzSO0JqDkUFIdMvt8+.PSc22dOmkB+dz\",\n    \"url_resolved\": \"http://BYiOHVqMkOVapFQqKKPLmzxdVD.roDP3S0k74glLFWUJW7,9BkeD4l.L.DRh3-X5l,uwQpj1YGBR5GcpHXyl4gV\",\n    \"homepage\": \"https://WYdZEnZQhwPhHxzAslArRRmzmUyQDtw.afK0I+mVzJ78Tgwtn3S5tMz\",\n    \"favicon\": \"http://Mg.bnhvt+-kEl+T0XPv6NZN+WcaIhRKe3XH-sqWfT.weLjsXBq-UWfCX1zGD.Mcao-2o\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 7696,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2016-06-17T12:31:04.373Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 9069,\n    \"hls\": 1,\n    \"lastcheckok\": 1,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"1976-04-06T19:11:32.762Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1952-02-18T09:27:06.656Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1953-07-24T10:34:27.469Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"2007-07-29T23:17:26.632Z\",\n    \"clickcount\": 8951,\n    \"clicktrend\": 1464,\n    \"ssl_error\": 0,\n    \"geo_lat\": 6881.453715678994,\n    \"geo_long\": 9826.621077235974,\n    \"geo_distance\": 2068.9467957127927,\n    \"has_extended_info\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ca3a4a4-ba54-4309-862e-0078626649c2",
+          "name": "Get Stations By UUID",
+          "request": {
+            "name": "Get Stations By UUID",
+            "description": {
+              "content": "Return the stations matching the supplied station UUIDs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json",
+                "stations",
+                "byuuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "uuids",
+                  "value": "<string>",
+                  "description": "(Required) One UUID or a comma-separated list of UUIDs."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7fbf0ddd-3647-4bdb-974c-1d8d2f7185d3",
+              "name": "Array of matching stations.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "stations",
+                    "byuuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "uuids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"changeuuid\": \"cdb98fbe-2dbe-18fb-e202-db457b97ec23\",\n    \"stationuuid\": \"bb6b3337-8ff4-8ad6-dc4d-fcba32f47b1a\",\n    \"serveruuid\": \"5690e687-a559-a3fa-6d0a-bc95a70b14a9\",\n    \"name\": \"string\",\n    \"url\": \"http://RQPOTbnnYIwwYkbJjQaaIfLXKFUFV.udoeHOpACSgE5qb.hHW6ap2IzmXeR7qf,HgxV+imdyvubQvW3id3\",\n    \"url_resolved\": \"http://CrgGsUEQJNPllwtcZGrdbFBdxeIR.meakjUlnsrH72UxfmWr16-U\",\n    \"homepage\": \"http://PHCoPdiDpAOZJne.eswuWlvMihep+is46yftFV2XbOdhbdH6F\",\n    \"favicon\": \"http://talGuPCC.fyqO2DxK5X+mZI7SuLJJsgnJA-MlSYEhZyjWQ286rwIOzSCSQWwGhgCkydT,m-lUa\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 8501,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2023-07-06T16:04:14.284Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 3965,\n    \"hls\": 0,\n    \"lastcheckok\": 0,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"2002-03-14T09:28:50.507Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1962-09-21T02:40:16.203Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1956-03-30T18:45:21.322Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"1977-10-15T22:37:43.400Z\",\n    \"clickcount\": 8464,\n    \"clicktrend\": 1437,\n    \"ssl_error\": 1,\n    \"geo_lat\": 676.2144715356789,\n    \"geo_long\": 620.009179673251,\n    \"geo_distance\": 4405.743926139783,\n    \"has_extended_info\": true\n  },\n  {\n    \"changeuuid\": \"56084f63-2f06-65df-fb03-e3f19c9a5556\",\n    \"stationuuid\": \"fec0c666-2a65-4dcf-0e7e-64d7be0c0127\",\n    \"serveruuid\": \"290c8493-2985-2f38-5d0f-1a9c372ad02f\",\n    \"name\": \"string\",\n    \"url\": \"http://yn.miJ0PGdUEEL78z8SxIAzSO0JqDkUFIdMvt8+.PSc22dOmkB+dz\",\n    \"url_resolved\": \"http://BYiOHVqMkOVapFQqKKPLmzxdVD.roDP3S0k74glLFWUJW7,9BkeD4l.L.DRh3-X5l,uwQpj1YGBR5GcpHXyl4gV\",\n    \"homepage\": \"https://WYdZEnZQhwPhHxzAslArRRmzmUyQDtw.afK0I+mVzJ78Tgwtn3S5tMz\",\n    \"favicon\": \"http://Mg.bnhvt+-kEl+T0XPv6NZN+WcaIhRKe3XH-sqWfT.weLjsXBq-UWfCX1zGD.Mcao-2o\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 7696,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2016-06-17T12:31:04.373Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 9069,\n    \"hls\": 1,\n    \"lastcheckok\": 1,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"1976-04-06T19:11:32.762Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1952-02-18T09:27:06.656Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1953-07-24T10:34:27.469Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"2007-07-29T23:17:26.632Z\",\n    \"clickcount\": 8951,\n    \"clicktrend\": 1464,\n    \"ssl_error\": 0,\n    \"geo_lat\": 6881.453715678994,\n    \"geo_long\": 9826.621077235974,\n    \"geo_distance\": 2068.9467957127927,\n    \"has_extended_info\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b1c329b-0fe3-435f-8689-1b46882ecc36",
+          "name": "Get Stations By Name",
+          "request": {
+            "name": "Get Stations By Name",
+            "description": {},
+            "url": {
+              "path": [
+                "json",
+                "stations",
+                "byname",
+                ":searchterm"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "searchterm",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb13ec8a-de1c-4475-b39f-4299e5c578fa",
+              "name": "Stations whose name matches the search term.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "stations",
+                    "byname",
+                    ":searchterm"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "searchterm",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"changeuuid\": \"cdb98fbe-2dbe-18fb-e202-db457b97ec23\",\n    \"stationuuid\": \"bb6b3337-8ff4-8ad6-dc4d-fcba32f47b1a\",\n    \"serveruuid\": \"5690e687-a559-a3fa-6d0a-bc95a70b14a9\",\n    \"name\": \"string\",\n    \"url\": \"http://RQPOTbnnYIwwYkbJjQaaIfLXKFUFV.udoeHOpACSgE5qb.hHW6ap2IzmXeR7qf,HgxV+imdyvubQvW3id3\",\n    \"url_resolved\": \"http://CrgGsUEQJNPllwtcZGrdbFBdxeIR.meakjUlnsrH72UxfmWr16-U\",\n    \"homepage\": \"http://PHCoPdiDpAOZJne.eswuWlvMihep+is46yftFV2XbOdhbdH6F\",\n    \"favicon\": \"http://talGuPCC.fyqO2DxK5X+mZI7SuLJJsgnJA-MlSYEhZyjWQ286rwIOzSCSQWwGhgCkydT,m-lUa\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 8501,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2023-07-06T16:04:14.284Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 3965,\n    \"hls\": 0,\n    \"lastcheckok\": 0,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"2002-03-14T09:28:50.507Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1962-09-21T02:40:16.203Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1956-03-30T18:45:21.322Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"1977-10-15T22:37:43.400Z\",\n    \"clickcount\": 8464,\n    \"clicktrend\": 1437,\n    \"ssl_error\": 1,\n    \"geo_lat\": 676.2144715356789,\n    \"geo_long\": 620.009179673251,\n    \"geo_distance\": 4405.743926139783,\n    \"has_extended_info\": true\n  },\n  {\n    \"changeuuid\": \"56084f63-2f06-65df-fb03-e3f19c9a5556\",\n    \"stationuuid\": \"fec0c666-2a65-4dcf-0e7e-64d7be0c0127\",\n    \"serveruuid\": \"290c8493-2985-2f38-5d0f-1a9c372ad02f\",\n    \"name\": \"string\",\n    \"url\": \"http://yn.miJ0PGdUEEL78z8SxIAzSO0JqDkUFIdMvt8+.PSc22dOmkB+dz\",\n    \"url_resolved\": \"http://BYiOHVqMkOVapFQqKKPLmzxdVD.roDP3S0k74glLFWUJW7,9BkeD4l.L.DRh3-X5l,uwQpj1YGBR5GcpHXyl4gV\",\n    \"homepage\": \"https://WYdZEnZQhwPhHxzAslArRRmzmUyQDtw.afK0I+mVzJ78Tgwtn3S5tMz\",\n    \"favicon\": \"http://Mg.bnhvt+-kEl+T0XPv6NZN+WcaIhRKe3XH-sqWfT.weLjsXBq-UWfCX1zGD.Mcao-2o\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 7696,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2016-06-17T12:31:04.373Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 9069,\n    \"hls\": 1,\n    \"lastcheckok\": 1,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"1976-04-06T19:11:32.762Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1952-02-18T09:27:06.656Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1953-07-24T10:34:27.469Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"2007-07-29T23:17:26.632Z\",\n    \"clickcount\": 8951,\n    \"clicktrend\": 1464,\n    \"ssl_error\": 0,\n    \"geo_lat\": 6881.453715678994,\n    \"geo_long\": 9826.621077235974,\n    \"geo_distance\": 2068.9467957127927,\n    \"has_extended_info\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f6d6630c-67c9-4f9f-bdd2-78181b9f6920",
+          "name": "Get Stations By Country",
+          "request": {
+            "name": "Get Stations By Country",
+            "description": {},
+            "url": {
+              "path": [
+                "json",
+                "stations",
+                "bycountry",
+                ":searchterm"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "searchterm",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "56b50719-3935-49ee-b99b-ba4a019a6676",
+              "name": "Stations registered in the given country.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "stations",
+                    "bycountry",
+                    ":searchterm"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "searchterm",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"changeuuid\": \"cdb98fbe-2dbe-18fb-e202-db457b97ec23\",\n    \"stationuuid\": \"bb6b3337-8ff4-8ad6-dc4d-fcba32f47b1a\",\n    \"serveruuid\": \"5690e687-a559-a3fa-6d0a-bc95a70b14a9\",\n    \"name\": \"string\",\n    \"url\": \"http://RQPOTbnnYIwwYkbJjQaaIfLXKFUFV.udoeHOpACSgE5qb.hHW6ap2IzmXeR7qf,HgxV+imdyvubQvW3id3\",\n    \"url_resolved\": \"http://CrgGsUEQJNPllwtcZGrdbFBdxeIR.meakjUlnsrH72UxfmWr16-U\",\n    \"homepage\": \"http://PHCoPdiDpAOZJne.eswuWlvMihep+is46yftFV2XbOdhbdH6F\",\n    \"favicon\": \"http://talGuPCC.fyqO2DxK5X+mZI7SuLJJsgnJA-MlSYEhZyjWQ286rwIOzSCSQWwGhgCkydT,m-lUa\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 8501,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2023-07-06T16:04:14.284Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 3965,\n    \"hls\": 0,\n    \"lastcheckok\": 0,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"2002-03-14T09:28:50.507Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1962-09-21T02:40:16.203Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1956-03-30T18:45:21.322Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"1977-10-15T22:37:43.400Z\",\n    \"clickcount\": 8464,\n    \"clicktrend\": 1437,\n    \"ssl_error\": 1,\n    \"geo_lat\": 676.2144715356789,\n    \"geo_long\": 620.009179673251,\n    \"geo_distance\": 4405.743926139783,\n    \"has_extended_info\": true\n  },\n  {\n    \"changeuuid\": \"56084f63-2f06-65df-fb03-e3f19c9a5556\",\n    \"stationuuid\": \"fec0c666-2a65-4dcf-0e7e-64d7be0c0127\",\n    \"serveruuid\": \"290c8493-2985-2f38-5d0f-1a9c372ad02f\",\n    \"name\": \"string\",\n    \"url\": \"http://yn.miJ0PGdUEEL78z8SxIAzSO0JqDkUFIdMvt8+.PSc22dOmkB+dz\",\n    \"url_resolved\": \"http://BYiOHVqMkOVapFQqKKPLmzxdVD.roDP3S0k74glLFWUJW7,9BkeD4l.L.DRh3-X5l,uwQpj1YGBR5GcpHXyl4gV\",\n    \"homepage\": \"https://WYdZEnZQhwPhHxzAslArRRmzmUyQDtw.afK0I+mVzJ78Tgwtn3S5tMz\",\n    \"favicon\": \"http://Mg.bnhvt+-kEl+T0XPv6NZN+WcaIhRKe3XH-sqWfT.weLjsXBq-UWfCX1zGD.Mcao-2o\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 7696,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2016-06-17T12:31:04.373Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 9069,\n    \"hls\": 1,\n    \"lastcheckok\": 1,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"1976-04-06T19:11:32.762Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1952-02-18T09:27:06.656Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1953-07-24T10:34:27.469Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"2007-07-29T23:17:26.632Z\",\n    \"clickcount\": 8951,\n    \"clicktrend\": 1464,\n    \"ssl_error\": 0,\n    \"geo_lat\": 6881.453715678994,\n    \"geo_long\": 9826.621077235974,\n    \"geo_distance\": 2068.9467957127927,\n    \"has_extended_info\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb36506d-e766-453b-95c2-ba0acc5a7655",
+          "name": "Get Stations By Country Code",
+          "request": {
+            "name": "Get Stations By Country Code",
+            "description": {},
+            "url": {
+              "path": [
+                "json",
+                "stations",
+                "bycountrycodeexact",
+                ":searchterm"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "searchterm",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e55c6871-24bf-41d2-8918-9c835bbaa9e4",
+              "name": "Stations matching the country code exactly.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "stations",
+                    "bycountrycodeexact",
+                    ":searchterm"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "searchterm",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"changeuuid\": \"cdb98fbe-2dbe-18fb-e202-db457b97ec23\",\n    \"stationuuid\": \"bb6b3337-8ff4-8ad6-dc4d-fcba32f47b1a\",\n    \"serveruuid\": \"5690e687-a559-a3fa-6d0a-bc95a70b14a9\",\n    \"name\": \"string\",\n    \"url\": \"http://RQPOTbnnYIwwYkbJjQaaIfLXKFUFV.udoeHOpACSgE5qb.hHW6ap2IzmXeR7qf,HgxV+imdyvubQvW3id3\",\n    \"url_resolved\": \"http://CrgGsUEQJNPllwtcZGrdbFBdxeIR.meakjUlnsrH72UxfmWr16-U\",\n    \"homepage\": \"http://PHCoPdiDpAOZJne.eswuWlvMihep+is46yftFV2XbOdhbdH6F\",\n    \"favicon\": \"http://talGuPCC.fyqO2DxK5X+mZI7SuLJJsgnJA-MlSYEhZyjWQ286rwIOzSCSQWwGhgCkydT,m-lUa\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 8501,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2023-07-06T16:04:14.284Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 3965,\n    \"hls\": 0,\n    \"lastcheckok\": 0,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"2002-03-14T09:28:50.507Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1962-09-21T02:40:16.203Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1956-03-30T18:45:21.322Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"1977-10-15T22:37:43.400Z\",\n    \"clickcount\": 8464,\n    \"clicktrend\": 1437,\n    \"ssl_error\": 1,\n    \"geo_lat\": 676.2144715356789,\n    \"geo_long\": 620.009179673251,\n    \"geo_distance\": 4405.743926139783,\n    \"has_extended_info\": true\n  },\n  {\n    \"changeuuid\": \"56084f63-2f06-65df-fb03-e3f19c9a5556\",\n    \"stationuuid\": \"fec0c666-2a65-4dcf-0e7e-64d7be0c0127\",\n    \"serveruuid\": \"290c8493-2985-2f38-5d0f-1a9c372ad02f\",\n    \"name\": \"string\",\n    \"url\": \"http://yn.miJ0PGdUEEL78z8SxIAzSO0JqDkUFIdMvt8+.PSc22dOmkB+dz\",\n    \"url_resolved\": \"http://BYiOHVqMkOVapFQqKKPLmzxdVD.roDP3S0k74glLFWUJW7,9BkeD4l.L.DRh3-X5l,uwQpj1YGBR5GcpHXyl4gV\",\n    \"homepage\": \"https://WYdZEnZQhwPhHxzAslArRRmzmUyQDtw.afK0I+mVzJ78Tgwtn3S5tMz\",\n    \"favicon\": \"http://Mg.bnhvt+-kEl+T0XPv6NZN+WcaIhRKe3XH-sqWfT.weLjsXBq-UWfCX1zGD.Mcao-2o\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 7696,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2016-06-17T12:31:04.373Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 9069,\n    \"hls\": 1,\n    \"lastcheckok\": 1,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"1976-04-06T19:11:32.762Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1952-02-18T09:27:06.656Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1953-07-24T10:34:27.469Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"2007-07-29T23:17:26.632Z\",\n    \"clickcount\": 8951,\n    \"clicktrend\": 1464,\n    \"ssl_error\": 0,\n    \"geo_lat\": 6881.453715678994,\n    \"geo_long\": 9826.621077235974,\n    \"geo_distance\": 2068.9467957127927,\n    \"has_extended_info\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "183f5f2c-a8bc-4661-8b00-57ea9599ad7e",
+          "name": "Get Stations By Language",
+          "request": {
+            "name": "Get Stations By Language",
+            "description": {},
+            "url": {
+              "path": [
+                "json",
+                "stations",
+                "bylanguage",
+                ":searchterm"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "searchterm",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2ccc52f9-14a0-42a9-921e-0e62dde324ce",
+              "name": "Stations broadcasting in the given language.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "stations",
+                    "bylanguage",
+                    ":searchterm"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "searchterm",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"changeuuid\": \"cdb98fbe-2dbe-18fb-e202-db457b97ec23\",\n    \"stationuuid\": \"bb6b3337-8ff4-8ad6-dc4d-fcba32f47b1a\",\n    \"serveruuid\": \"5690e687-a559-a3fa-6d0a-bc95a70b14a9\",\n    \"name\": \"string\",\n    \"url\": \"http://RQPOTbnnYIwwYkbJjQaaIfLXKFUFV.udoeHOpACSgE5qb.hHW6ap2IzmXeR7qf,HgxV+imdyvubQvW3id3\",\n    \"url_resolved\": \"http://CrgGsUEQJNPllwtcZGrdbFBdxeIR.meakjUlnsrH72UxfmWr16-U\",\n    \"homepage\": \"http://PHCoPdiDpAOZJne.eswuWlvMihep+is46yftFV2XbOdhbdH6F\",\n    \"favicon\": \"http://talGuPCC.fyqO2DxK5X+mZI7SuLJJsgnJA-MlSYEhZyjWQ286rwIOzSCSQWwGhgCkydT,m-lUa\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 8501,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2023-07-06T16:04:14.284Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 3965,\n    \"hls\": 0,\n    \"lastcheckok\": 0,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"2002-03-14T09:28:50.507Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1962-09-21T02:40:16.203Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1956-03-30T18:45:21.322Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"1977-10-15T22:37:43.400Z\",\n    \"clickcount\": 8464,\n    \"clicktrend\": 1437,\n    \"ssl_error\": 1,\n    \"geo_lat\": 676.2144715356789,\n    \"geo_long\": 620.009179673251,\n    \"geo_distance\": 4405.743926139783,\n    \"has_extended_info\": true\n  },\n  {\n    \"changeuuid\": \"56084f63-2f06-65df-fb03-e3f19c9a5556\",\n    \"stationuuid\": \"fec0c666-2a65-4dcf-0e7e-64d7be0c0127\",\n    \"serveruuid\": \"290c8493-2985-2f38-5d0f-1a9c372ad02f\",\n    \"name\": \"string\",\n    \"url\": \"http://yn.miJ0PGdUEEL78z8SxIAzSO0JqDkUFIdMvt8+.PSc22dOmkB+dz\",\n    \"url_resolved\": \"http://BYiOHVqMkOVapFQqKKPLmzxdVD.roDP3S0k74glLFWUJW7,9BkeD4l.L.DRh3-X5l,uwQpj1YGBR5GcpHXyl4gV\",\n    \"homepage\": \"https://WYdZEnZQhwPhHxzAslArRRmzmUyQDtw.afK0I+mVzJ78Tgwtn3S5tMz\",\n    \"favicon\": \"http://Mg.bnhvt+-kEl+T0XPv6NZN+WcaIhRKe3XH-sqWfT.weLjsXBq-UWfCX1zGD.Mcao-2o\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 7696,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2016-06-17T12:31:04.373Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 9069,\n    \"hls\": 1,\n    \"lastcheckok\": 1,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"1976-04-06T19:11:32.762Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1952-02-18T09:27:06.656Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1953-07-24T10:34:27.469Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"2007-07-29T23:17:26.632Z\",\n    \"clickcount\": 8951,\n    \"clicktrend\": 1464,\n    \"ssl_error\": 0,\n    \"geo_lat\": 6881.453715678994,\n    \"geo_long\": 9826.621077235974,\n    \"geo_distance\": 2068.9467957127927,\n    \"has_extended_info\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26e71d22-95ae-4c39-99fd-69c163e32943",
+          "name": "Get Stations By Tag",
+          "request": {
+            "name": "Get Stations By Tag",
+            "description": {},
+            "url": {
+              "path": [
+                "json",
+                "stations",
+                "bytag",
+                ":searchterm"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "searchterm",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "44cf1fb7-4621-44ab-a4cd-cf78e83a482f",
+              "name": "Stations tagged with the given keyword.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "stations",
+                    "bytag",
+                    ":searchterm"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "searchterm",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"changeuuid\": \"cdb98fbe-2dbe-18fb-e202-db457b97ec23\",\n    \"stationuuid\": \"bb6b3337-8ff4-8ad6-dc4d-fcba32f47b1a\",\n    \"serveruuid\": \"5690e687-a559-a3fa-6d0a-bc95a70b14a9\",\n    \"name\": \"string\",\n    \"url\": \"http://RQPOTbnnYIwwYkbJjQaaIfLXKFUFV.udoeHOpACSgE5qb.hHW6ap2IzmXeR7qf,HgxV+imdyvubQvW3id3\",\n    \"url_resolved\": \"http://CrgGsUEQJNPllwtcZGrdbFBdxeIR.meakjUlnsrH72UxfmWr16-U\",\n    \"homepage\": \"http://PHCoPdiDpAOZJne.eswuWlvMihep+is46yftFV2XbOdhbdH6F\",\n    \"favicon\": \"http://talGuPCC.fyqO2DxK5X+mZI7SuLJJsgnJA-MlSYEhZyjWQ286rwIOzSCSQWwGhgCkydT,m-lUa\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 8501,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2023-07-06T16:04:14.284Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 3965,\n    \"hls\": 0,\n    \"lastcheckok\": 0,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"2002-03-14T09:28:50.507Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1962-09-21T02:40:16.203Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1956-03-30T18:45:21.322Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"1977-10-15T22:37:43.400Z\",\n    \"clickcount\": 8464,\n    \"clicktrend\": 1437,\n    \"ssl_error\": 1,\n    \"geo_lat\": 676.2144715356789,\n    \"geo_long\": 620.009179673251,\n    \"geo_distance\": 4405.743926139783,\n    \"has_extended_info\": true\n  },\n  {\n    \"changeuuid\": \"56084f63-2f06-65df-fb03-e3f19c9a5556\",\n    \"stationuuid\": \"fec0c666-2a65-4dcf-0e7e-64d7be0c0127\",\n    \"serveruuid\": \"290c8493-2985-2f38-5d0f-1a9c372ad02f\",\n    \"name\": \"string\",\n    \"url\": \"http://yn.miJ0PGdUEEL78z8SxIAzSO0JqDkUFIdMvt8+.PSc22dOmkB+dz\",\n    \"url_resolved\": \"http://BYiOHVqMkOVapFQqKKPLmzxdVD.roDP3S0k74glLFWUJW7,9BkeD4l.L.DRh3-X5l,uwQpj1YGBR5GcpHXyl4gV\",\n    \"homepage\": \"https://WYdZEnZQhwPhHxzAslArRRmzmUyQDtw.afK0I+mVzJ78Tgwtn3S5tMz\",\n    \"favicon\": \"http://Mg.bnhvt+-kEl+T0XPv6NZN+WcaIhRKe3XH-sqWfT.weLjsXBq-UWfCX1zGD.Mcao-2o\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 7696,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2016-06-17T12:31:04.373Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 9069,\n    \"hls\": 1,\n    \"lastcheckok\": 1,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"1976-04-06T19:11:32.762Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1952-02-18T09:27:06.656Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1953-07-24T10:34:27.469Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"2007-07-29T23:17:26.632Z\",\n    \"clickcount\": 8951,\n    \"clicktrend\": 1464,\n    \"ssl_error\": 0,\n    \"geo_lat\": 6881.453715678994,\n    \"geo_long\": 9826.621077235974,\n    \"geo_distance\": 2068.9467957127927,\n    \"has_extended_info\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "faf19f55-72be-4e03-ad95-4d888e9f8a30",
+          "name": "Get Stations By Codec",
+          "request": {
+            "name": "Get Stations By Codec",
+            "description": {},
+            "url": {
+              "path": [
+                "json",
+                "stations",
+                "bycodec",
+                ":searchterm"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "searchterm",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc150a60-3c38-4c5a-83ae-c9bd4bb7f9ea",
+              "name": "Stations using the given audio codec.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "stations",
+                    "bycodec",
+                    ":searchterm"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "searchterm",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"changeuuid\": \"cdb98fbe-2dbe-18fb-e202-db457b97ec23\",\n    \"stationuuid\": \"bb6b3337-8ff4-8ad6-dc4d-fcba32f47b1a\",\n    \"serveruuid\": \"5690e687-a559-a3fa-6d0a-bc95a70b14a9\",\n    \"name\": \"string\",\n    \"url\": \"http://RQPOTbnnYIwwYkbJjQaaIfLXKFUFV.udoeHOpACSgE5qb.hHW6ap2IzmXeR7qf,HgxV+imdyvubQvW3id3\",\n    \"url_resolved\": \"http://CrgGsUEQJNPllwtcZGrdbFBdxeIR.meakjUlnsrH72UxfmWr16-U\",\n    \"homepage\": \"http://PHCoPdiDpAOZJne.eswuWlvMihep+is46yftFV2XbOdhbdH6F\",\n    \"favicon\": \"http://talGuPCC.fyqO2DxK5X+mZI7SuLJJsgnJA-MlSYEhZyjWQ286rwIOzSCSQWwGhgCkydT,m-lUa\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 8501,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2023-07-06T16:04:14.284Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 3965,\n    \"hls\": 0,\n    \"lastcheckok\": 0,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"2002-03-14T09:28:50.507Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1962-09-21T02:40:16.203Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1956-03-30T18:45:21.322Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"1977-10-15T22:37:43.400Z\",\n    \"clickcount\": 8464,\n    \"clicktrend\": 1437,\n    \"ssl_error\": 1,\n    \"geo_lat\": 676.2144715356789,\n    \"geo_long\": 620.009179673251,\n    \"geo_distance\": 4405.743926139783,\n    \"has_extended_info\": true\n  },\n  {\n    \"changeuuid\": \"56084f63-2f06-65df-fb03-e3f19c9a5556\",\n    \"stationuuid\": \"fec0c666-2a65-4dcf-0e7e-64d7be0c0127\",\n    \"serveruuid\": \"290c8493-2985-2f38-5d0f-1a9c372ad02f\",\n    \"name\": \"string\",\n    \"url\": \"http://yn.miJ0PGdUEEL78z8SxIAzSO0JqDkUFIdMvt8+.PSc22dOmkB+dz\",\n    \"url_resolved\": \"http://BYiOHVqMkOVapFQqKKPLmzxdVD.roDP3S0k74glLFWUJW7,9BkeD4l.L.DRh3-X5l,uwQpj1YGBR5GcpHXyl4gV\",\n    \"homepage\": \"https://WYdZEnZQhwPhHxzAslArRRmzmUyQDtw.afK0I+mVzJ78Tgwtn3S5tMz\",\n    \"favicon\": \"http://Mg.bnhvt+-kEl+T0XPv6NZN+WcaIhRKe3XH-sqWfT.weLjsXBq-UWfCX1zGD.Mcao-2o\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 7696,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2016-06-17T12:31:04.373Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 9069,\n    \"hls\": 1,\n    \"lastcheckok\": 1,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"1976-04-06T19:11:32.762Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1952-02-18T09:27:06.656Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1953-07-24T10:34:27.469Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"2007-07-29T23:17:26.632Z\",\n    \"clickcount\": 8951,\n    \"clicktrend\": 1464,\n    \"ssl_error\": 0,\n    \"geo_lat\": 6881.453715678994,\n    \"geo_long\": 9826.621077235974,\n    \"geo_distance\": 2068.9467957127927,\n    \"has_extended_info\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f2ecde4c-5ca1-48dc-97b1-d06a01cb58e6",
+          "name": "Get Stations By Stream URL",
+          "request": {
+            "name": "Get Stations By Stream URL",
+            "description": {},
+            "url": {
+              "path": [
+                "json",
+                "stations",
+                "byurl"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "url",
+                  "value": "<uri>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c88123ff-d8d2-4018-b939-06b99cbfc504",
+              "name": "Stations registered with the given stream URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "stations",
+                    "byurl"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "<uri>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"changeuuid\": \"cdb98fbe-2dbe-18fb-e202-db457b97ec23\",\n    \"stationuuid\": \"bb6b3337-8ff4-8ad6-dc4d-fcba32f47b1a\",\n    \"serveruuid\": \"5690e687-a559-a3fa-6d0a-bc95a70b14a9\",\n    \"name\": \"string\",\n    \"url\": \"http://RQPOTbnnYIwwYkbJjQaaIfLXKFUFV.udoeHOpACSgE5qb.hHW6ap2IzmXeR7qf,HgxV+imdyvubQvW3id3\",\n    \"url_resolved\": \"http://CrgGsUEQJNPllwtcZGrdbFBdxeIR.meakjUlnsrH72UxfmWr16-U\",\n    \"homepage\": \"http://PHCoPdiDpAOZJne.eswuWlvMihep+is46yftFV2XbOdhbdH6F\",\n    \"favicon\": \"http://talGuPCC.fyqO2DxK5X+mZI7SuLJJsgnJA-MlSYEhZyjWQ286rwIOzSCSQWwGhgCkydT,m-lUa\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 8501,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2023-07-06T16:04:14.284Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 3965,\n    \"hls\": 0,\n    \"lastcheckok\": 0,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"2002-03-14T09:28:50.507Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1962-09-21T02:40:16.203Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1956-03-30T18:45:21.322Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"1977-10-15T22:37:43.400Z\",\n    \"clickcount\": 8464,\n    \"clicktrend\": 1437,\n    \"ssl_error\": 1,\n    \"geo_lat\": 676.2144715356789,\n    \"geo_long\": 620.009179673251,\n    \"geo_distance\": 4405.743926139783,\n    \"has_extended_info\": true\n  },\n  {\n    \"changeuuid\": \"56084f63-2f06-65df-fb03-e3f19c9a5556\",\n    \"stationuuid\": \"fec0c666-2a65-4dcf-0e7e-64d7be0c0127\",\n    \"serveruuid\": \"290c8493-2985-2f38-5d0f-1a9c372ad02f\",\n    \"name\": \"string\",\n    \"url\": \"http://yn.miJ0PGdUEEL78z8SxIAzSO0JqDkUFIdMvt8+.PSc22dOmkB+dz\",\n    \"url_resolved\": \"http://BYiOHVqMkOVapFQqKKPLmzxdVD.roDP3S0k74glLFWUJW7,9BkeD4l.L.DRh3-X5l,uwQpj1YGBR5GcpHXyl4gV\",\n    \"homepage\": \"https://WYdZEnZQhwPhHxzAslArRRmzmUyQDtw.afK0I+mVzJ78Tgwtn3S5tMz\",\n    \"favicon\": \"http://Mg.bnhvt+-kEl+T0XPv6NZN+WcaIhRKe3XH-sqWfT.weLjsXBq-UWfCX1zGD.Mcao-2o\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 7696,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2016-06-17T12:31:04.373Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 9069,\n    \"hls\": 1,\n    \"lastcheckok\": 1,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"1976-04-06T19:11:32.762Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1952-02-18T09:27:06.656Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1953-07-24T10:34:27.469Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"2007-07-29T23:17:26.632Z\",\n    \"clickcount\": 8951,\n    \"clicktrend\": 1464,\n    \"ssl_error\": 0,\n    \"geo_lat\": 6881.453715678994,\n    \"geo_long\": 9826.621077235974,\n    \"geo_distance\": 2068.9467957127927,\n    \"has_extended_info\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ac8a30d7-6912-422b-ac7c-7e176ddab725",
+          "name": "Get Top Clicked Stations",
+          "request": {
+            "name": "Get Top Clicked Stations",
+            "description": {},
+            "url": {
+              "path": [
+                "json",
+                "stations",
+                "topclick"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "rowcount"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "21540127-5e5b-410d-b3f8-66f38374b413",
+              "name": "Stations ranked by click count.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "stations",
+                    "topclick"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "rowcount"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"changeuuid\": \"cdb98fbe-2dbe-18fb-e202-db457b97ec23\",\n    \"stationuuid\": \"bb6b3337-8ff4-8ad6-dc4d-fcba32f47b1a\",\n    \"serveruuid\": \"5690e687-a559-a3fa-6d0a-bc95a70b14a9\",\n    \"name\": \"string\",\n    \"url\": \"http://RQPOTbnnYIwwYkbJjQaaIfLXKFUFV.udoeHOpACSgE5qb.hHW6ap2IzmXeR7qf,HgxV+imdyvubQvW3id3\",\n    \"url_resolved\": \"http://CrgGsUEQJNPllwtcZGrdbFBdxeIR.meakjUlnsrH72UxfmWr16-U\",\n    \"homepage\": \"http://PHCoPdiDpAOZJne.eswuWlvMihep+is46yftFV2XbOdhbdH6F\",\n    \"favicon\": \"http://talGuPCC.fyqO2DxK5X+mZI7SuLJJsgnJA-MlSYEhZyjWQ286rwIOzSCSQWwGhgCkydT,m-lUa\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 8501,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2023-07-06T16:04:14.284Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 3965,\n    \"hls\": 0,\n    \"lastcheckok\": 0,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"2002-03-14T09:28:50.507Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1962-09-21T02:40:16.203Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1956-03-30T18:45:21.322Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"1977-10-15T22:37:43.400Z\",\n    \"clickcount\": 8464,\n    \"clicktrend\": 1437,\n    \"ssl_error\": 1,\n    \"geo_lat\": 676.2144715356789,\n    \"geo_long\": 620.009179673251,\n    \"geo_distance\": 4405.743926139783,\n    \"has_extended_info\": true\n  },\n  {\n    \"changeuuid\": \"56084f63-2f06-65df-fb03-e3f19c9a5556\",\n    \"stationuuid\": \"fec0c666-2a65-4dcf-0e7e-64d7be0c0127\",\n    \"serveruuid\": \"290c8493-2985-2f38-5d0f-1a9c372ad02f\",\n    \"name\": \"string\",\n    \"url\": \"http://yn.miJ0PGdUEEL78z8SxIAzSO0JqDkUFIdMvt8+.PSc22dOmkB+dz\",\n    \"url_resolved\": \"http://BYiOHVqMkOVapFQqKKPLmzxdVD.roDP3S0k74glLFWUJW7,9BkeD4l.L.DRh3-X5l,uwQpj1YGBR5GcpHXyl4gV\",\n    \"homepage\": \"https://WYdZEnZQhwPhHxzAslArRRmzmUyQDtw.afK0I+mVzJ78Tgwtn3S5tMz\",\n    \"favicon\": \"http://Mg.bnhvt+-kEl+T0XPv6NZN+WcaIhRKe3XH-sqWfT.weLjsXBq-UWfCX1zGD.Mcao-2o\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 7696,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2016-06-17T12:31:04.373Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 9069,\n    \"hls\": 1,\n    \"lastcheckok\": 1,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"1976-04-06T19:11:32.762Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1952-02-18T09:27:06.656Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1953-07-24T10:34:27.469Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"2007-07-29T23:17:26.632Z\",\n    \"clickcount\": 8951,\n    \"clicktrend\": 1464,\n    \"ssl_error\": 0,\n    \"geo_lat\": 6881.453715678994,\n    \"geo_long\": 9826.621077235974,\n    \"geo_distance\": 2068.9467957127927,\n    \"has_extended_info\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "44155e08-a7ae-4a36-9ace-591275d8c5ac",
+          "name": "Get Top Voted Stations",
+          "request": {
+            "name": "Get Top Voted Stations",
+            "description": {},
+            "url": {
+              "path": [
+                "json",
+                "stations",
+                "topvote"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "313ff13f-2f79-4214-95f2-7ad981a3f7b8",
+              "name": "Stations ranked by vote count.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "stations",
+                    "topvote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"changeuuid\": \"cdb98fbe-2dbe-18fb-e202-db457b97ec23\",\n    \"stationuuid\": \"bb6b3337-8ff4-8ad6-dc4d-fcba32f47b1a\",\n    \"serveruuid\": \"5690e687-a559-a3fa-6d0a-bc95a70b14a9\",\n    \"name\": \"string\",\n    \"url\": \"http://RQPOTbnnYIwwYkbJjQaaIfLXKFUFV.udoeHOpACSgE5qb.hHW6ap2IzmXeR7qf,HgxV+imdyvubQvW3id3\",\n    \"url_resolved\": \"http://CrgGsUEQJNPllwtcZGrdbFBdxeIR.meakjUlnsrH72UxfmWr16-U\",\n    \"homepage\": \"http://PHCoPdiDpAOZJne.eswuWlvMihep+is46yftFV2XbOdhbdH6F\",\n    \"favicon\": \"http://talGuPCC.fyqO2DxK5X+mZI7SuLJJsgnJA-MlSYEhZyjWQ286rwIOzSCSQWwGhgCkydT,m-lUa\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 8501,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2023-07-06T16:04:14.284Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 3965,\n    \"hls\": 0,\n    \"lastcheckok\": 0,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"2002-03-14T09:28:50.507Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1962-09-21T02:40:16.203Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1956-03-30T18:45:21.322Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"1977-10-15T22:37:43.400Z\",\n    \"clickcount\": 8464,\n    \"clicktrend\": 1437,\n    \"ssl_error\": 1,\n    \"geo_lat\": 676.2144715356789,\n    \"geo_long\": 620.009179673251,\n    \"geo_distance\": 4405.743926139783,\n    \"has_extended_info\": true\n  },\n  {\n    \"changeuuid\": \"56084f63-2f06-65df-fb03-e3f19c9a5556\",\n    \"stationuuid\": \"fec0c666-2a65-4dcf-0e7e-64d7be0c0127\",\n    \"serveruuid\": \"290c8493-2985-2f38-5d0f-1a9c372ad02f\",\n    \"name\": \"string\",\n    \"url\": \"http://yn.miJ0PGdUEEL78z8SxIAzSO0JqDkUFIdMvt8+.PSc22dOmkB+dz\",\n    \"url_resolved\": \"http://BYiOHVqMkOVapFQqKKPLmzxdVD.roDP3S0k74glLFWUJW7,9BkeD4l.L.DRh3-X5l,uwQpj1YGBR5GcpHXyl4gV\",\n    \"homepage\": \"https://WYdZEnZQhwPhHxzAslArRRmzmUyQDtw.afK0I+mVzJ78Tgwtn3S5tMz\",\n    \"favicon\": \"http://Mg.bnhvt+-kEl+T0XPv6NZN+WcaIhRKe3XH-sqWfT.weLjsXBq-UWfCX1zGD.Mcao-2o\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 7696,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2016-06-17T12:31:04.373Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 9069,\n    \"hls\": 1,\n    \"lastcheckok\": 1,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"1976-04-06T19:11:32.762Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1952-02-18T09:27:06.656Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1953-07-24T10:34:27.469Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"2007-07-29T23:17:26.632Z\",\n    \"clickcount\": 8951,\n    \"clicktrend\": 1464,\n    \"ssl_error\": 0,\n    \"geo_lat\": 6881.453715678994,\n    \"geo_long\": 9826.621077235974,\n    \"geo_distance\": 2068.9467957127927,\n    \"has_extended_info\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54dc1edf-cad9-441a-8c9b-3b580e365b93",
+          "name": "Get Recently Clicked Stations",
+          "request": {
+            "name": "Get Recently Clicked Stations",
+            "description": {},
+            "url": {
+              "path": [
+                "json",
+                "stations",
+                "lastclick"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "62095749-0dc9-4bee-bffc-c0d8fe882d72",
+              "name": "Stations sorted by most recent click.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "stations",
+                    "lastclick"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"changeuuid\": \"cdb98fbe-2dbe-18fb-e202-db457b97ec23\",\n    \"stationuuid\": \"bb6b3337-8ff4-8ad6-dc4d-fcba32f47b1a\",\n    \"serveruuid\": \"5690e687-a559-a3fa-6d0a-bc95a70b14a9\",\n    \"name\": \"string\",\n    \"url\": \"http://RQPOTbnnYIwwYkbJjQaaIfLXKFUFV.udoeHOpACSgE5qb.hHW6ap2IzmXeR7qf,HgxV+imdyvubQvW3id3\",\n    \"url_resolved\": \"http://CrgGsUEQJNPllwtcZGrdbFBdxeIR.meakjUlnsrH72UxfmWr16-U\",\n    \"homepage\": \"http://PHCoPdiDpAOZJne.eswuWlvMihep+is46yftFV2XbOdhbdH6F\",\n    \"favicon\": \"http://talGuPCC.fyqO2DxK5X+mZI7SuLJJsgnJA-MlSYEhZyjWQ286rwIOzSCSQWwGhgCkydT,m-lUa\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 8501,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2023-07-06T16:04:14.284Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 3965,\n    \"hls\": 0,\n    \"lastcheckok\": 0,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"2002-03-14T09:28:50.507Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1962-09-21T02:40:16.203Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1956-03-30T18:45:21.322Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"1977-10-15T22:37:43.400Z\",\n    \"clickcount\": 8464,\n    \"clicktrend\": 1437,\n    \"ssl_error\": 1,\n    \"geo_lat\": 676.2144715356789,\n    \"geo_long\": 620.009179673251,\n    \"geo_distance\": 4405.743926139783,\n    \"has_extended_info\": true\n  },\n  {\n    \"changeuuid\": \"56084f63-2f06-65df-fb03-e3f19c9a5556\",\n    \"stationuuid\": \"fec0c666-2a65-4dcf-0e7e-64d7be0c0127\",\n    \"serveruuid\": \"290c8493-2985-2f38-5d0f-1a9c372ad02f\",\n    \"name\": \"string\",\n    \"url\": \"http://yn.miJ0PGdUEEL78z8SxIAzSO0JqDkUFIdMvt8+.PSc22dOmkB+dz\",\n    \"url_resolved\": \"http://BYiOHVqMkOVapFQqKKPLmzxdVD.roDP3S0k74glLFWUJW7,9BkeD4l.L.DRh3-X5l,uwQpj1YGBR5GcpHXyl4gV\",\n    \"homepage\": \"https://WYdZEnZQhwPhHxzAslArRRmzmUyQDtw.afK0I+mVzJ78Tgwtn3S5tMz\",\n    \"favicon\": \"http://Mg.bnhvt+-kEl+T0XPv6NZN+WcaIhRKe3XH-sqWfT.weLjsXBq-UWfCX1zGD.Mcao-2o\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 7696,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2016-06-17T12:31:04.373Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 9069,\n    \"hls\": 1,\n    \"lastcheckok\": 1,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"1976-04-06T19:11:32.762Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1952-02-18T09:27:06.656Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1953-07-24T10:34:27.469Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"2007-07-29T23:17:26.632Z\",\n    \"clickcount\": 8951,\n    \"clicktrend\": 1464,\n    \"ssl_error\": 0,\n    \"geo_lat\": 6881.453715678994,\n    \"geo_long\": 9826.621077235974,\n    \"geo_distance\": 2068.9467957127927,\n    \"has_extended_info\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "afd96c86-fe49-48e2-8527-095ae250f21c",
+          "name": "Get Recently Changed Stations",
+          "request": {
+            "name": "Get Recently Changed Stations",
+            "description": {},
+            "url": {
+              "path": [
+                "json",
+                "stations",
+                "lastchange"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "963936d9-35d3-4bf2-948a-888368978102",
+              "name": "Stations sorted by most recent change.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "stations",
+                    "lastchange"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"changeuuid\": \"cdb98fbe-2dbe-18fb-e202-db457b97ec23\",\n    \"stationuuid\": \"bb6b3337-8ff4-8ad6-dc4d-fcba32f47b1a\",\n    \"serveruuid\": \"5690e687-a559-a3fa-6d0a-bc95a70b14a9\",\n    \"name\": \"string\",\n    \"url\": \"http://RQPOTbnnYIwwYkbJjQaaIfLXKFUFV.udoeHOpACSgE5qb.hHW6ap2IzmXeR7qf,HgxV+imdyvubQvW3id3\",\n    \"url_resolved\": \"http://CrgGsUEQJNPllwtcZGrdbFBdxeIR.meakjUlnsrH72UxfmWr16-U\",\n    \"homepage\": \"http://PHCoPdiDpAOZJne.eswuWlvMihep+is46yftFV2XbOdhbdH6F\",\n    \"favicon\": \"http://talGuPCC.fyqO2DxK5X+mZI7SuLJJsgnJA-MlSYEhZyjWQ286rwIOzSCSQWwGhgCkydT,m-lUa\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 8501,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2023-07-06T16:04:14.284Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 3965,\n    \"hls\": 0,\n    \"lastcheckok\": 0,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"2002-03-14T09:28:50.507Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1962-09-21T02:40:16.203Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1956-03-30T18:45:21.322Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"1977-10-15T22:37:43.400Z\",\n    \"clickcount\": 8464,\n    \"clicktrend\": 1437,\n    \"ssl_error\": 1,\n    \"geo_lat\": 676.2144715356789,\n    \"geo_long\": 620.009179673251,\n    \"geo_distance\": 4405.743926139783,\n    \"has_extended_info\": true\n  },\n  {\n    \"changeuuid\": \"56084f63-2f06-65df-fb03-e3f19c9a5556\",\n    \"stationuuid\": \"fec0c666-2a65-4dcf-0e7e-64d7be0c0127\",\n    \"serveruuid\": \"290c8493-2985-2f38-5d0f-1a9c372ad02f\",\n    \"name\": \"string\",\n    \"url\": \"http://yn.miJ0PGdUEEL78z8SxIAzSO0JqDkUFIdMvt8+.PSc22dOmkB+dz\",\n    \"url_resolved\": \"http://BYiOHVqMkOVapFQqKKPLmzxdVD.roDP3S0k74glLFWUJW7,9BkeD4l.L.DRh3-X5l,uwQpj1YGBR5GcpHXyl4gV\",\n    \"homepage\": \"https://WYdZEnZQhwPhHxzAslArRRmzmUyQDtw.afK0I+mVzJ78Tgwtn3S5tMz\",\n    \"favicon\": \"http://Mg.bnhvt+-kEl+T0XPv6NZN+WcaIhRKe3XH-sqWfT.weLjsXBq-UWfCX1zGD.Mcao-2o\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 7696,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2016-06-17T12:31:04.373Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 9069,\n    \"hls\": 1,\n    \"lastcheckok\": 1,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"1976-04-06T19:11:32.762Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1952-02-18T09:27:06.656Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1953-07-24T10:34:27.469Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"2007-07-29T23:17:26.632Z\",\n    \"clickcount\": 8951,\n    \"clicktrend\": 1464,\n    \"ssl_error\": 0,\n    \"geo_lat\": 6881.453715678994,\n    \"geo_long\": 9826.621077235974,\n    \"geo_distance\": 2068.9467957127927,\n    \"has_extended_info\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0065ab92-2a14-4613-aa15-511c2ea052d4",
+          "name": "Get Broken Stations",
+          "request": {
+            "name": "Get Broken Stations",
+            "description": {},
+            "url": {
+              "path": [
+                "json",
+                "stations",
+                "broken"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9ed3168e-346d-46cd-9602-3afd00f48a5b",
+              "name": "Stations whose latest health check failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "stations",
+                    "broken"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"changeuuid\": \"cdb98fbe-2dbe-18fb-e202-db457b97ec23\",\n    \"stationuuid\": \"bb6b3337-8ff4-8ad6-dc4d-fcba32f47b1a\",\n    \"serveruuid\": \"5690e687-a559-a3fa-6d0a-bc95a70b14a9\",\n    \"name\": \"string\",\n    \"url\": \"http://RQPOTbnnYIwwYkbJjQaaIfLXKFUFV.udoeHOpACSgE5qb.hHW6ap2IzmXeR7qf,HgxV+imdyvubQvW3id3\",\n    \"url_resolved\": \"http://CrgGsUEQJNPllwtcZGrdbFBdxeIR.meakjUlnsrH72UxfmWr16-U\",\n    \"homepage\": \"http://PHCoPdiDpAOZJne.eswuWlvMihep+is46yftFV2XbOdhbdH6F\",\n    \"favicon\": \"http://talGuPCC.fyqO2DxK5X+mZI7SuLJJsgnJA-MlSYEhZyjWQ286rwIOzSCSQWwGhgCkydT,m-lUa\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 8501,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2023-07-06T16:04:14.284Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 3965,\n    \"hls\": 0,\n    \"lastcheckok\": 0,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"2002-03-14T09:28:50.507Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1962-09-21T02:40:16.203Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1956-03-30T18:45:21.322Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"1977-10-15T22:37:43.400Z\",\n    \"clickcount\": 8464,\n    \"clicktrend\": 1437,\n    \"ssl_error\": 1,\n    \"geo_lat\": 676.2144715356789,\n    \"geo_long\": 620.009179673251,\n    \"geo_distance\": 4405.743926139783,\n    \"has_extended_info\": true\n  },\n  {\n    \"changeuuid\": \"56084f63-2f06-65df-fb03-e3f19c9a5556\",\n    \"stationuuid\": \"fec0c666-2a65-4dcf-0e7e-64d7be0c0127\",\n    \"serveruuid\": \"290c8493-2985-2f38-5d0f-1a9c372ad02f\",\n    \"name\": \"string\",\n    \"url\": \"http://yn.miJ0PGdUEEL78z8SxIAzSO0JqDkUFIdMvt8+.PSc22dOmkB+dz\",\n    \"url_resolved\": \"http://BYiOHVqMkOVapFQqKKPLmzxdVD.roDP3S0k74glLFWUJW7,9BkeD4l.L.DRh3-X5l,uwQpj1YGBR5GcpHXyl4gV\",\n    \"homepage\": \"https://WYdZEnZQhwPhHxzAslArRRmzmUyQDtw.afK0I+mVzJ78Tgwtn3S5tMz\",\n    \"favicon\": \"http://Mg.bnhvt+-kEl+T0XPv6NZN+WcaIhRKe3XH-sqWfT.weLjsXBq-UWfCX1zGD.Mcao-2o\",\n    \"tags\": \"string\",\n    \"country\": \"string\",\n    \"countrycode\": \"string\",\n    \"iso_3166_2\": \"string\",\n    \"state\": \"string\",\n    \"language\": \"string\",\n    \"languagecodes\": \"string\",\n    \"votes\": 7696,\n    \"lastchangetime\": \"string\",\n    \"lastchangetime_iso8601\": \"2016-06-17T12:31:04.373Z\",\n    \"codec\": \"string\",\n    \"bitrate\": 9069,\n    \"hls\": 1,\n    \"lastcheckok\": 1,\n    \"lastchecktime\": \"string\",\n    \"lastchecktime_iso8601\": \"1976-04-06T19:11:32.762Z\",\n    \"lastcheckoktime\": \"string\",\n    \"lastcheckoktime_iso8601\": \"1952-02-18T09:27:06.656Z\",\n    \"lastlocalchecktime\": \"string\",\n    \"lastlocalchecktime_iso8601\": \"1953-07-24T10:34:27.469Z\",\n    \"clicktimestamp\": \"string\",\n    \"clicktimestamp_iso8601\": \"2007-07-29T23:17:26.632Z\",\n    \"clickcount\": 8951,\n    \"clicktrend\": 1464,\n    \"ssl_error\": 0,\n    \"geo_lat\": 6881.453715678994,\n    \"geo_long\": 9826.621077235974,\n    \"geo_distance\": 2068.9467957127927,\n    \"has_extended_info\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://de1.api.radio-browser.info",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6a94c400-a01c-49fd-9036-c5b9602473ec",
+    "name": "Radio Browser Categories Stations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Radio Browser is a free community-driven directory of internet radio\nstations. The API exposes the complete station database along with\nmetadata (countries, languages, codecs, tags, states) and supports\nclick counting, voting, and station submission.\n\nServers are reached through a round-robin DNS pool. Resolve\n`all.api.radio-browser.info` to obtain the list of mirrors, then call\none of them (for example `de1.api.radio-browser.info`). The base URL\n`api.radio-browser.info` also resolves to one of the active mirrors.\n\nClients MUST send a descriptive `User-Agent` header in the form\n`appname/appversion`. Voting is throttled to one vote per station per\nIP every 10 minutes. Click counts are aggregated once per station per\nIP per 24 hours.\n\n\nContact Support:\n Name: Radio Browser",
+      "type": "text/plain"
+    }
+  }
+}

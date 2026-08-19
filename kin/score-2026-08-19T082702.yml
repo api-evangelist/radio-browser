@@ -1,0 +1,51 @@
+# Kin Score artifact — radio-browser — 2026-08-19T082702
+# The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
+---
+kin_score:
+  slug: radio-browser
+  schema_version: 0.12.0
+  scored_at: '2026-08-19'
+  run_ts: 2026-08-19T082702
+  composite: 43.9
+  band: developing
+  facets:
+    discoverability: 74.1
+    contract_quality: 59.1
+    governance: 54.5
+    operational_transparency: 34.2
+    developer_ergonomics: 33.3
+    commercial_clarity: 21.1
+    contract_governance: 54.5
+    access_clarity: 21.1
+  agent_readiness:
+    score: 20.5
+    band: agent-aware
+    dimensions:
+      spec_presence: true
+      agentic_access: derived
+      reversibility_documented: false
+      mcp_server: false
+      auth_clarity: false
+      idempotency: false
+      error_semantics: false
+      openapi_examples: false
+      rate_limit_signal: documented
+      event_surface_described: false
+      agent_skills: false
+      well_known_catalog: false
+      consent_identity: false
+      agent_card: false
+      dry_run_mode: false
+  regulatory:
+    applies: true
+    regime: Government & Public Sector
+    regime_id: government
+    score: 20.4
+    matched_via: tags
+  provenance:
+    agentic_access: derived
+    contracts:
+      total: 4
+      derived: 0
+      coverage: 0.0
+      callable: 100.0

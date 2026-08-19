@@ -1,0 +1,417 @@
+{
+  "item": [
+    {
+      "id": "0f224909-aeaf-4fdb-8b88-e26f2ca03467",
+      "name": "Interactions",
+      "description": {
+        "content": "Click counting, voting, and station submission.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "407de3c3-cc13-4173-8759-e991183a5890",
+          "name": "Click Station",
+          "request": {
+            "name": "Click Station",
+            "description": {
+              "content": "Register a play (click) for the given station and return the resolved\nstream URL. Clients SHOULD call this every time the user starts\nplayback. Counted once per IP per station per 24 hours.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json",
+                "url",
+                ":stationuuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "stationuuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "68238d67-982a-4887-a290-1feee9d51bc1",
+              "name": "Click acknowledged.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "url",
+                    ":stationuuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "stationuuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ok\": true,\n  \"message\": \"string\",\n  \"stationuuid\": \"e8465455-0660-361a-22cf-96fd4306c64c\",\n  \"name\": \"string\",\n  \"url\": \"https://OQgpYfkoHf.ikjss-ZJ3HvHXbAweb1b5bQ5RxVy0kYs+IjDGfpI1x.Z68+WzXFvL6g-SC\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10342d3a-baac-42d7-b493-be8e980f4820",
+          "name": "Vote For Station",
+          "request": {
+            "name": "Vote For Station",
+            "description": {
+              "content": "Vote for a station. Throttled to one vote per station per IP every 10 minutes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json",
+                "vote",
+                ":stationuuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "stationuuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "12540e8c-c57d-455e-9eb2-c0f793eaa0ab",
+              "name": "Vote outcome.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "vote",
+                    ":stationuuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "stationuuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ok\": true,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01cd9cc0-590d-46bc-a343-2a811b238ab2",
+          "name": "Submit Station",
+          "request": {
+            "name": "Submit Station",
+            "description": {
+              "content": "Submit a new radio station to the directory.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "url",
+                  "value": "<uri>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "homepage",
+                  "value": "<uri>"
+                },
+                {
+                  "disabled": false,
+                  "key": "favicon",
+                  "value": "<uri>"
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "countrycode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "tags",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "geo_lat",
+                  "value": "<float>"
+                },
+                {
+                  "disabled": false,
+                  "key": "geo_long",
+                  "value": "<float>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "19eec7a6-4de3-463b-9c36-b77cb349bdb3",
+              "name": "Submission result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "homepage",
+                      "value": "<uri>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "favicon",
+                      "value": "<uri>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "countrycode",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "tags",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "geo_lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "geo_long",
+                      "value": "<float>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ok\": true,\n  \"message\": \"string\",\n  \"uuid\": \"d9bd8941-500a-45c2-1dcf-dae54abf7ff9\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://de1.api.radio-browser.info",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8a3c40ba-54a8-416f-8302-32af6d76fb96",
+    "name": "Radio Browser Categories Interactions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Radio Browser is a free community-driven directory of internet radio\nstations. The API exposes the complete station database along with\nmetadata (countries, languages, codecs, tags, states) and supports\nclick counting, voting, and station submission.\n\nServers are reached through a round-robin DNS pool. Resolve\n`all.api.radio-browser.info` to obtain the list of mirrors, then call\none of them (for example `de1.api.radio-browser.info`). The base URL\n`api.radio-browser.info` also resolves to one of the active mirrors.\n\nClients MUST send a descriptive `User-Agent` header in the form\n`appname/appversion`. Voting is throttled to one vote per station per\nIP every 10 minutes. Click counts are aggregated once per station per\nIP per 24 hours.\n\n\nContact Support:\n Name: Radio Browser",
+      "type": "text/plain"
+    }
+  }
+}
