@@ -32,7 +32,7 @@ tags:
 url: https://raw.githubusercontent.com/api-evangelist/radio-browser/refs/heads/main/apis.yml
 created: '2026-05-28'
 modified: '2026-05-28'
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 x-source: public-apis/public-apis
 x-category: Music
 x-type: opensource
