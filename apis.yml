@@ -155,6 +155,8 @@ apis:
   humanURL: https://api.radio-browser.info/
   baseURL: https://de1.api.radio-browser.info
   tags:
+  - Services
+  tags_raw:
   - Service
   properties:
   - type: OpenAPI
