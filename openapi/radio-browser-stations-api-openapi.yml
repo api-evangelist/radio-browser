@@ -1,33 +1,9 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Radio Browser Categories Stations API
+  title: Radio Browser Stations API
   description: 'Radio Browser is a free community-driven directory of internet radio
 
-    stations. The API exposes the complete station database along with
-
-    metadata (countries, languages, codecs, tags, states) and supports
-
-    click counting, voting, and station submission.
-
-
-    Servers are reached through a round-robin DNS pool. Resolve
-
-    `all.api.radio-browser.info` to obtain the list of mirrors, then call
-
-    one of them (for example `de1.api.radio-browser.info`). The base URL
-
-    `api.radio-browser.info` also resolves to one of the active mirrors.
-
-
-    Clients MUST send a descriptive `User-Agent` header in the form
-
-    `appname/appversion`. Voting is throttled to one vote per station per
-
-    IP every 10 minutes. Click counts are aggregated once per station per
-
-    IP per 24 hours.
-
-    '
+    stations.'
   version: 0.7.44
   contact:
     name: Radio Browser
@@ -420,30 +396,6 @@ paths:
                 items:
                   $ref: '#/components/schemas/Station'
 components:
-  parameters:
-    Offset:
-      in: query
-      name: offset
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
-      description: Starting offset for pagination.
-    HideBroken:
-      in: query
-      name: hidebroken
-      schema:
-        type: boolean
-        default: false
-      description: Exclude stations whose last health check failed.
-    Limit:
-      in: query
-      name: limit
-      schema:
-        type: integer
-        minimum: 0
-        default: 100000
-      description: Maximum rows to return.
   schemas:
     Station:
       type: object
@@ -456,9 +408,10 @@ components:
           type: string
           format: uuid
         serveruuid:
-          type: string
+          type:
+          - string
+          - 'null'
           format: uuid
-          nullable: true
         name:
           type: string
         url:
@@ -531,9 +484,10 @@ components:
         clicktimestamp:
           type: string
         clicktimestamp_iso8601:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         clickcount:
           type: integer
         clicktrend:
@@ -544,16 +498,43 @@ components:
           - 0
           - 1
         geo_lat:
-          type: number
+          type:
+          - number
+          - 'null'
           format: float
-          nullable: true
         geo_long:
-          type: number
+          type:
+          - number
+          - 'null'
           format: float
-          nullable: true
         geo_distance:
-          type: number
+          type:
+          - number
+          - 'null'
           format: float
-          nullable: true
         has_extended_info:
           type: boolean
+  parameters:
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        minimum: 0
+        default: 100000
+      description: Maximum rows to return.
+    Offset:
+      in: query
+      name: offset
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+      description: Starting offset for pagination.
+    HideBroken:
+      in: query
+      name: hidebroken
+      schema:
+        type: boolean
+        default: false
+      description: Exclude stations whose last health check failed.
