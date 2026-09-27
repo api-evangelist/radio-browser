@@ -105,13 +105,29 @@ paths:
                   $ref: '#/components/schemas/StationClick'
 components:
   schemas:
-    MirrorServer:
+    Stats:
       type: object
       properties:
-        ip:
+        supported_version:
+          type: integer
+        software_version:
           type: string
-        name:
+        status:
           type: string
+        stations:
+          type: integer
+        stations_broken:
+          type: integer
+        tags:
+          type: integer
+        clicks_last_hour:
+          type: integer
+        clicks_last_day:
+          type: integer
+        languages:
+          type: integer
+        countries:
+          type: integer
     StationCheck:
       type: object
       properties:
@@ -210,6 +226,13 @@ components:
           - number
           - 'null'
           format: float
+    MirrorServer:
+      type: object
+      properties:
+        ip:
+          type: string
+        name:
+          type: string
     StationClick:
       type: object
       properties:
@@ -224,38 +247,7 @@ components:
           format: date-time
         clicktimestamp:
           type: string
-    Stats:
-      type: object
-      properties:
-        supported_version:
-          type: integer
-        software_version:
-          type: string
-        status:
-          type: string
-        stations:
-          type: integer
-        stations_broken:
-          type: integer
-        tags:
-          type: integer
-        clicks_last_hour:
-          type: integer
-        clicks_last_day:
-          type: integer
-        languages:
-          type: integer
-        countries:
-          type: integer
   parameters:
-    Offset:
-      in: query
-      name: offset
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
-      description: Starting offset for pagination.
     Limit:
       in: query
       name: limit
@@ -264,3 +256,11 @@ components:
         minimum: 0
         default: 100000
       description: Maximum rows to return.
+    Offset:
+      in: query
+      name: offset
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+      description: Starting offset for pagination.

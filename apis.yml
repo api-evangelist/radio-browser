@@ -8,17 +8,20 @@ description: >-
   anyone can self-host an additional mirror.
 type: Index
 deliveryModel:
-  model: unknown
+  model: saas
+  license_evidence:
+    not_product:
+    - segler-alex/radiobrowser-api-rust
   open_source: unknown
   commercial: true
   callable_host: true
-  label: Delivery model not determined — needs a product licence on record
+  label: Hosted service · you call their endpoint
   confidence: low
   source:
   - openapi
   - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: free
@@ -37,7 +40,7 @@ tags:
   - Music
   - Radio
   - Streaming
-  - Open-Source
+  - Open Source
   - Open Data
   - Community
   - Public APIs
@@ -51,6 +54,7 @@ tags_raw:
   - Community
   - Public APIs
   - AGPL
+  - Open-Source
 url: https://raw.githubusercontent.com/api-evangelist/radio-browser/refs/heads/main/apis.yml
 created: '2026-05-28'
 modified: '2026-05-28'
