@@ -226,13 +226,6 @@ components:
           - number
           - 'null'
           format: float
-    MirrorServer:
-      type: object
-      properties:
-        ip:
-          type: string
-        name:
-          type: string
     StationClick:
       type: object
       properties:
@@ -246,6 +239,13 @@ components:
           type: string
           format: date-time
         clicktimestamp:
+          type: string
+    MirrorServer:
+      type: object
+      properties:
+        ip:
+          type: string
+        name:
           type: string
   parameters:
     Limit:

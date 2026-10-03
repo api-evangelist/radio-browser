@@ -397,6 +397,13 @@ paths:
                   $ref: '#/components/schemas/Station'
 components:
   parameters:
+    HideBroken:
+      in: query
+      name: hidebroken
+      schema:
+        type: boolean
+        default: false
+      description: Exclude stations whose last health check failed.
     Limit:
       in: query
       name: limit
@@ -405,13 +412,6 @@ components:
         minimum: 0
         default: 100000
       description: Maximum rows to return.
-    HideBroken:
-      in: query
-      name: hidebroken
-      schema:
-        type: boolean
-        default: false
-      description: Exclude stations whose last health check failed.
     Offset:
       in: query
       name: offset

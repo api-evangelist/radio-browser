@@ -95,6 +95,13 @@ paths:
                 $ref: '#/components/schemas/AddStationResult'
 components:
   schemas:
+    StatusResult:
+      type: object
+      properties:
+        ok:
+          type: boolean
+        message:
+          type: string
     StationSubmission:
       type: object
       required:
@@ -138,13 +145,6 @@ components:
         uuid:
           type: string
           format: uuid
-    StatusResult:
-      type: object
-      properties:
-        ok:
-          type: boolean
-        message:
-          type: string
     ClickResult:
       type: object
       properties:
