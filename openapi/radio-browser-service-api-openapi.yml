@@ -104,30 +104,38 @@ paths:
                 items:
                   $ref: '#/components/schemas/StationClick'
 components:
+  parameters:
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        minimum: 0
+        default: 100000
+      description: Maximum rows to return.
+    Offset:
+      in: query
+      name: offset
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+      description: Starting offset for pagination.
   schemas:
-    Stats:
+    StationClick:
       type: object
       properties:
-        supported_version:
-          type: integer
-        software_version:
+        stationuuid:
           type: string
-        status:
+          format: uuid
+        clickuuid:
           type: string
-        stations:
-          type: integer
-        stations_broken:
-          type: integer
-        tags:
-          type: integer
-        clicks_last_hour:
-          type: integer
-        clicks_last_day:
-          type: integer
-        languages:
-          type: integer
-        countries:
-          type: integer
+          format: uuid
+        clicktimestamp_iso8601:
+          type: string
+          format: date-time
+        clicktimestamp:
+          type: string
     StationCheck:
       type: object
       properties:
@@ -226,20 +234,6 @@ components:
           - number
           - 'null'
           format: float
-    StationClick:
-      type: object
-      properties:
-        stationuuid:
-          type: string
-          format: uuid
-        clickuuid:
-          type: string
-          format: uuid
-        clicktimestamp_iso8601:
-          type: string
-          format: date-time
-        clicktimestamp:
-          type: string
     MirrorServer:
       type: object
       properties:
@@ -247,20 +241,26 @@ components:
           type: string
         name:
           type: string
-  parameters:
-    Limit:
-      in: query
-      name: limit
-      schema:
-        type: integer
-        minimum: 0
-        default: 100000
-      description: Maximum rows to return.
-    Offset:
-      in: query
-      name: offset
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
-      description: Starting offset for pagination.
+    Stats:
+      type: object
+      properties:
+        supported_version:
+          type: integer
+        software_version:
+          type: string
+        status:
+          type: string
+        stations:
+          type: integer
+        stations_broken:
+          type: integer
+        tags:
+          type: integer
+        clicks_last_hour:
+          type: integer
+        clicks_last_day:
+          type: integer
+        languages:
+          type: integer
+        countries:
+          type: integer

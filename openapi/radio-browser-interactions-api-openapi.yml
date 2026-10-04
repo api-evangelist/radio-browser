@@ -95,13 +95,6 @@ paths:
                 $ref: '#/components/schemas/AddStationResult'
 components:
   schemas:
-    StatusResult:
-      type: object
-      properties:
-        ok:
-          type: boolean
-        message:
-          type: string
     StationSubmission:
       type: object
       required:
@@ -135,16 +128,6 @@ components:
         geo_long:
           type: number
           format: float
-    AddStationResult:
-      type: object
-      properties:
-        ok:
-          type: boolean
-        message:
-          type: string
-        uuid:
-          type: string
-          format: uuid
     ClickResult:
       type: object
       properties:
@@ -160,3 +143,20 @@ components:
         url:
           type: string
           format: uri
+    StatusResult:
+      type: object
+      properties:
+        ok:
+          type: boolean
+        message:
+          type: string
+    AddStationResult:
+      type: object
+      properties:
+        ok:
+          type: boolean
+        message:
+          type: string
+        uuid:
+          type: string
+          format: uuid

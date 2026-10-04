@@ -396,30 +396,6 @@ paths:
                 items:
                   $ref: '#/components/schemas/Station'
 components:
-  parameters:
-    HideBroken:
-      in: query
-      name: hidebroken
-      schema:
-        type: boolean
-        default: false
-      description: Exclude stations whose last health check failed.
-    Limit:
-      in: query
-      name: limit
-      schema:
-        type: integer
-        minimum: 0
-        default: 100000
-      description: Maximum rows to return.
-    Offset:
-      in: query
-      name: offset
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
-      description: Starting offset for pagination.
   schemas:
     Station:
       type: object
@@ -538,3 +514,27 @@ components:
           format: float
         has_extended_info:
           type: boolean
+  parameters:
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        minimum: 0
+        default: 100000
+      description: Maximum rows to return.
+    HideBroken:
+      in: query
+      name: hidebroken
+      schema:
+        type: boolean
+        default: false
+      description: Exclude stations whose last health check failed.
+    Offset:
+      in: query
+      name: offset
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+      description: Starting offset for pagination.
