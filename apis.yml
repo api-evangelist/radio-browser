@@ -57,7 +57,7 @@ tags_raw:
   - Open-Source
 url: https://raw.githubusercontent.com/api-evangelist/radio-browser/refs/heads/main/apis.yml
 created: '2026-05-28'
-modified: '2026-05-28'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 x-source: public-apis/public-apis
 x-category: Music
@@ -244,6 +244,8 @@ apis:
   - type: RateLimits
     url: rate-limits/radio-browser-rate-limits.yml
 common:
+  - url: https://www.radio-browser.info/blog/
+    type: Blog
   - type: IssueTracker
     url: https://github.com/segler-alex/radiobrowser-api-rust/issues
   - type: Releases
