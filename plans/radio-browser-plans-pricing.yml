@@ -81,3 +81,22 @@ notes: |
   Because Radio Browser is AGPL software, organizations needing guaranteed throughput, SLAs, or private
   data can self-host the radiobrowser-api-rust server (https://gitlab.com/radiobrowser/radiobrowser-api-rust).
   Self-hosting cost is operator-owned and not modeled here.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  units:
+  - request
+  plans:
+  - name: Free (Community)
+    access: free
+    model: free
+    model_how: derived
+    units:
+    - other
+    - request
+    periods:
+    - day
+    - other
+    - unbounded
