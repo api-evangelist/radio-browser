@@ -515,14 +515,6 @@ components:
         has_extended_info:
           type: boolean
   parameters:
-    Limit:
-      in: query
-      name: limit
-      schema:
-        type: integer
-        minimum: 0
-        default: 100000
-      description: Maximum rows to return.
     HideBroken:
       in: query
       name: hidebroken
@@ -538,3 +530,11 @@ components:
         minimum: 0
         default: 0
       description: Starting offset for pagination.
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        minimum: 0
+        default: 100000
+      description: Maximum rows to return.

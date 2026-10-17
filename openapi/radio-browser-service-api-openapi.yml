@@ -104,23 +104,6 @@ paths:
                 items:
                   $ref: '#/components/schemas/StationClick'
 components:
-  parameters:
-    Limit:
-      in: query
-      name: limit
-      schema:
-        type: integer
-        minimum: 0
-        default: 100000
-      description: Maximum rows to return.
-    Offset:
-      in: query
-      name: offset
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
-      description: Starting offset for pagination.
   schemas:
     StationClick:
       type: object
@@ -135,6 +118,13 @@ components:
           type: string
           format: date-time
         clicktimestamp:
+          type: string
+    MirrorServer:
+      type: object
+      properties:
+        ip:
+          type: string
+        name:
           type: string
     StationCheck:
       type: object
@@ -234,13 +224,6 @@ components:
           - number
           - 'null'
           format: float
-    MirrorServer:
-      type: object
-      properties:
-        ip:
-          type: string
-        name:
-          type: string
     Stats:
       type: object
       properties:
@@ -264,3 +247,20 @@ components:
           type: integer
         countries:
           type: integer
+  parameters:
+    Offset:
+      in: query
+      name: offset
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+      description: Starting offset for pagination.
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        minimum: 0
+        default: 100000
+      description: Maximum rows to return.

@@ -118,13 +118,6 @@ paths:
                   $ref: '#/components/schemas/Category'
 components:
   schemas:
-    StateCategory:
-      allOf:
-      - $ref: '#/components/schemas/Category'
-      - type: object
-        properties:
-          country:
-            type: string
     Category:
       type: object
       description: An aggregate count of stations for a category (country, language, tag, or codec).
@@ -133,3 +126,10 @@ components:
           type: string
         stationcount:
           type: integer
+    StateCategory:
+      allOf:
+      - $ref: '#/components/schemas/Category'
+      - type: object
+        properties:
+          country:
+            type: string
